@@ -1,4 +1,4 @@
-# ith-vuecli-2
+# ith-vuecli-2 - Website ITH v4.0 PWA
 
 ## Instalar dependências
 ```
