@@ -1,24 +1,24 @@
 # ith-vuecli-2
 
-## Project setup
+## Instalar dependências
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compilar e ativar Hot-reload para DEV.
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compilar e minificar para produção. (subir para o site)
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### Mostrar possíveis soluções para erros no código, auto-debug.
 ```
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Manual e documentação do Vuejs para iniciantes
+Leia [Manual de Instalação](https://cli.vuejs.org/config/).
