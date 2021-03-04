@@ -3,7 +3,7 @@
     <v-container>
       <v-row class="wraper-qualities py-15">
         <v-col cols="12" sm="6" md="3">
-          <div class="quality-item py-5">
+          <div v-ripple class="quality-item py-5">
             <div>
               Mais de <b>5 mil</b> <br>
               alunos formados!
@@ -11,7 +11,7 @@
           </div>
         </v-col>
         <v-col cols="12" sm="6" md="3">
-          <div :class="$vuetify.breakpoint.sm ? 'dark':'dark'" class="quality-item py-5">
+          <div v-ripple :class="$vuetify.breakpoint.sm ? 'dark':'dark'" class="quality-item py-5">
             <div>
               98,5% de <b>satisfação</b> <br>
               do aluno
@@ -26,7 +26,7 @@
           </div>
         </v-col>
         <v-col cols="12" sm="6" md="3">
-          <div :class="$vuetify.breakpoint.sm ? 'dark':''" class="quality-item py-5">
+          <div v-ripple :class="$vuetify.breakpoint.sm ? 'dark':''" class="quality-item py-5">
             <div>
               <b>Modelo ITH 4.0</b> <br>
               Exclusivo
@@ -34,7 +34,7 @@
           </div>
         </v-col>
         <v-col cols="12" sm="6" md="3">
-          <div :class="$vuetify.breakpoint.sm ? '':'dark'" class="quality-item py-5">
+          <div v-ripple :class="$vuetify.breakpoint.sm ? '':'dark'" class="quality-item py-5">
             <div>
               77% dos alunos <br><b>atuando na área</b>
               após <br> sua formação
@@ -68,6 +68,8 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
+      
+      user-select:none;
 
       padding: 20px;
       div{
@@ -107,7 +109,10 @@ export default {
     }
   }
 }
+</style>
+
+<style scoped>
 .spacer{
-  height: 100px;
+  height: 40px;
 }
 </style>
