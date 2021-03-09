@@ -1,7 +1,7 @@
 <template>
     <div class="vazado">
         <div>
-            <div></div>
+            <div :style="`background-color:${linecolor}!important;`"></div>
             <h3 class="gilmer"><slot /></h3>
         </div>
     </div>
@@ -9,7 +9,9 @@
 
 <script>
 export default {
-
+    props: {
+        linecolor: String
+    }
 }
 </script>
 
@@ -17,9 +19,10 @@ export default {
 @import '~vuetify/src/styles/styles.sass';
     .vazado{
     display: flex;
+    
+    transform: translateY(50%);
         div{
             div{
-                background-color: #FCA311;
                 height: 50%;
                 width: 100%;
             }
@@ -36,6 +39,7 @@ export default {
     .vazado{
         div{
             div{
+                //
             }
             .gilmer{
                 font-size: 30px;

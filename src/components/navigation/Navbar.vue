@@ -1,16 +1,16 @@
 <template>
     <div class="navigation-block">
-        <div v-if="$vuetify.breakpoint.lg || $vuetify.breakpoint.xl" class="nav-container" :class="scrollPosition == 0 ||scrollPosition == null ? 'is-on-top':'not-on-top' ">
+        <div v-if="$vuetify.breakpoint.lg || $vuetify.breakpoint.xl" class="nav-container" :class="scrollPosition == 0 ||scrollPosition == null ? 'is-on-top':'not-on-top'">
+            <yellowline />
             <v-container class="nav-menu">
                 
                 <v-img dark max-width="120px" class="mr-5" src="@/assets/Branding/Logo.svg"></v-img>
                 
                 <div class="menu">
+                    <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark>Vestibular</v-btn>
                     <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark>Cursos</v-btn>
                     <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark>Acadêmico</v-btn>
-                    <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark>Quem somos</v-btn>
-                    <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark>Blog</v-btn>
-                    <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark>Acesso</v-btn>
+                    <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark>Inovação e pesquisa</v-btn>
                     <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark class="transformith amber--text mr-5">Transformith</v-btn>
                 </div>
 
@@ -103,10 +103,11 @@
 </template>
 
 <script>
+import yellowline from './Navbar/yellowline.vue';
 export default {
     data: () => ({
-        drawer: false,
         scrollPosition: null,
+        drawer: false,
     }),
     methods: {
         updateScroll() {
@@ -115,6 +116,9 @@ export default {
     },
     mounted(){
         window.addEventListener('scroll', this.updateScroll);
+    },
+    components: {
+        yellowline
     }
 }
 </script>

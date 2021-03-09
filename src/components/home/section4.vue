@@ -16,7 +16,7 @@
         </v-row>
     </v-container>
     <v-container>
-        <underscore>MAIS DESEJADOS</underscore>
+        <underscore class="mb-5" :linecolor="'#FCA311'">MAIS DESEJADOS</underscore>
     </v-container>
     <cards class="mb-5" />
   </div>
