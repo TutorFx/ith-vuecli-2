@@ -1,5 +1,5 @@
 <template>
-  <div class="section4" :style="`background-image: url(${require('@/assets/Sections/icon/s4logoblue.svg')});`">
+  <div class="section4 pb-10" :style="`background-image: url(${require('@/assets/Sections/icon/s4logoblue.svg')});`">
     <v-container>
         <v-row>
             <v-col cols="12" md="4" class="pt-0"></v-col>
@@ -18,7 +18,7 @@
     <v-container>
         <underscore>MAIS DESEJADOS</underscore>
     </v-container>
-    <cards />
+    <cards class="mb-5" />
   </div>
 </template>
 

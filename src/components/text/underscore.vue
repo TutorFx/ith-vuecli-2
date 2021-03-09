@@ -14,6 +14,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~vuetify/src/styles/styles.sass';
     .vazado{
     display: flex;
         div{
@@ -30,5 +31,16 @@ export default {
                 padding-left: 15px;
             }
         }
+    }
+    @media only screen and (min-width: map-get($grid-breakpoints, 'xs')) {
+    .vazado{
+        div{
+            div{
+            }
+            .gilmer{
+                font-size: 30px;
+            }
+        }
+    }    
     }
 </style>
