@@ -14,8 +14,8 @@
                     <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark class="transformith amber--text mr-5">Transformith</v-btn>
                 </div>
 
-                <v-text-field class="busca" color="amber" dark>
-                    <v-icon slot="append" color="amber" dark>mdi-magnify</v-icon>
+                <v-text-field class="busca" color="amber" dark v-model="search">
+                    <v-icon slot="append" color="amber" @click="buscar" dark>mdi-magnify</v-icon>
                 </v-text-field>
 
                 <v-btn
@@ -108,10 +108,14 @@ export default {
     data: () => ({
         scrollPosition: null,
         drawer: false,
+        search: '',
     }),
     methods: {
         updateScroll() {
             this.scrollPosition = window.scrollY
+        },
+        buscar(){
+            this.$store.commit("changeSearch", this.search);
         }
     },
     mounted(){
@@ -119,6 +123,11 @@ export default {
     },
     components: {
         yellowline
+    },
+    watch:{
+        '$store.state.search.input': function() {
+            console.log(this.$store.state.search.input);
+        }
     }
 }
 </script>

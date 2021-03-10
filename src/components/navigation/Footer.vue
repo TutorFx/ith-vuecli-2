@@ -2,22 +2,44 @@
 <template>
   <div class="footer">
 
-      <v-container class="container-footer">
+      <v-container class="container-footer" >
 
-        <!-- caixa -->
+      <!--XS - Smal/Large mobile  <600px 
+          SM - Medium Table       600px > < 960px 
+          MD - LAPTOP             960px > < 1264px 
+          LG - DESKTOP            1264px > < 1904px 
+          XL - 4K ULTRA WIDE      > 1904px
+      -->
+
+        <!-- CONTAINER PRINCIPAL -->  
         <v-row>                       
           
-          <v-col cols="5" sm="12" lg="5">
-            aaaaaaa logo aqui
+
+          <!-- container da  Logo -->
+          <v-col cols="12" xs="12" sm="12" md="5">
+            
             <!-- <v-img src="@/assets/"></v-img> -->
+
+
+            <div class="logo-endereco">
+              Rua 203, Nº344 - St. Leste Universitário <br>
+              CEP: 74.603-060 Goiânia - GO
+            </div>
+
+
           </v-col>
           
 
-          <v-col cols="7" sm="12" lg="7">
+          <!-- Coluna da  Area -->
+          <v-col cols="12" xs="12" sm="12" md="7"> 
             
-            <!-- caixa Area -->
+            <!-- Container da  Area -->
             <v-row>
+
+
+              <!-- coluna dos links 'Responsividade automatica das colunas dentro do Row de cima -->
               <v-col>
+
                 <div class="footerlinks">
                   <H3>ITH</H3> <br>
                   <router-link class="" to="/academico"> Acadêmico </router-link> <br>
@@ -27,6 +49,7 @@
                   <router-link class="" to="/academico"> Transformith </router-link> <br>
                 </div>
               </v-col>
+
 
               <v-col>
                 <div class="footerlinks">
@@ -50,16 +73,20 @@
                   <H4>Newsletter</H4> <br>
                   
                   <p> Inscreva-se agora e receba atualizações sobre nossos cursos! </p>
-                  <form action="">
-                    <v-text-field
+                  
+                  <form action="">              <!-- formulario -->
+                  
+                  <!-- input 'text-field' -->
+                    <v-text-field               
                       outlined
                       class="mb-5"
                       label="* Seu e-mail"
                       hide-details="auto"
                       color="#fca311"
+                      small
                     ></v-text-field>
 
-
+                    <!-- button 'v-btn' -->
                     <v-btn depressed block type="send" color="#fca311">
                       Me inscrever
                     </v-btn>
@@ -113,10 +140,24 @@
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
-    // edita aqui
+
+    .logo-endereco{
+      font-family: 'Gilmer';
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+      color: black;
+
+    }
+
+    .teste{
+      background-color: #ddd;
+    }
+
       .footerlinks{
         a{
-          background-color: red;
+          text-decoration: none;
+          color: #777;
         }
       }
   }

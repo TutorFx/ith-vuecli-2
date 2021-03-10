@@ -14,6 +14,11 @@ const routes = [
     path: '/cursos/:slug/:modalidade',
     name: 'Cursos',
     component: () => import('../views/Home.vue')
+  },
+  {
+    path: '/trabalheconosco',
+    name: 'Trabalhe Conosco',
+    component: () => import('../views/trabalhe-conosco.vue') // http://localhost:8080/trabalheconosco
   }
   // {
   //   path: '/about',

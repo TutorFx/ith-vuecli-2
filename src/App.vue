@@ -62,13 +62,20 @@
 
 export default {
   name: 'App',
-
   components: {
 
   },
-
   data: () => ({
     //
   }),
+  mounted(){
+    this.getApi()
+    console.log()
+  },
+  methods: {
+    getApi(){
+      this.$store.commit("getApi");
+    }
+  }
 };
 </script>

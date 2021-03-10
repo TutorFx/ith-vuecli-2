@@ -18,16 +18,16 @@
     <v-container>
         <underscore class="mb-5" :linecolor="'#FCA311'">MAIS DESEJADOS</underscore>
     </v-container>
-    <cards class="mb-5" />
+    <query class="mb-5" />
   </div>
 </template>
 
 <script>
-import cards from "@/components/Query/Slider/cards.vue"
+import query from "@/components/Query/Slider/query.vue"
 import underscore from "@/components/text/underscore.vue"
  export default{
      components: {
-         cards, underscore
+         query, underscore
      }
  }
 </script>

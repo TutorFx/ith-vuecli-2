@@ -13,17 +13,19 @@
         <!-- CONFIG. LOGO PARCEIROS -->
         <v-container class="container-parceiros">
             <div class="logo-parceiros">
-                <v-row align="center" align-content="space-between" class="my-10">
-                    <v-col cols="4" lg="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/coren.png"></v-img></v-col>
-                    <v-col cols="4" lg="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/eduq.svg"></v-img></v-col>
-                    <v-col cols="4" lg="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/facunicamps.png"></v-img></v-col>
-                    <v-col cols="4" lg="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/fatec.png"></v-img></v-col>
-                    <v-col cols="4" lg="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/corenmt.png"></v-img></v-col>
-                    <v-col cols="4" lg="2" xl="2"><v-img class="py-5 px-5" style="background-color: #222;" contain src="@/assets/parceiros/latene.png"></v-img></v-col>
-                    <v-col cols="4" lg="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/maximacentrodeestudos.png"></v-img></v-col>
-                    <v-col cols="4" lg="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/sec.png"></v-img></v-col>
-                    <v-col cols="4" lg="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/unibf.svg"></v-img></v-col>
-                    <v-col cols="4" lg="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/unimedgo.png"></v-img></v-col>
+                <v-row justify="center" align-content="space-between" class="mt-10">
+                    <v-col cols="2" xs="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/coren.png"></v-img></v-col>
+                    <v-col cols="2" xs="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/eduq.svg"></v-img></v-col>
+                    <v-col cols="2" xs="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/facunicamps.png"></v-img></v-col>
+                    <v-col cols="2" xs="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/fatec.png"></v-img></v-col>
+                    <v-col cols="2" xs="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/corenmt.png"></v-img></v-col>
+                </v-row>
+                <v-row class="mb-10" justify="center">
+                    <v-col cols="2" xs="2" xl="2"><v-img class="py-5 px-5" style="background-color: #222;" contain src="@/assets/parceiros/latene.png"></v-img></v-col>
+                    <v-col cols="2" xs="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/maximacentrodeestudos.png"></v-img></v-col>
+                    <v-col cols="2" xs="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/sec.png"></v-img></v-col>
+                    <v-col cols="2" xs="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/unibf.svg"></v-img></v-col>
+                    <v-col cols="2" xs="2" xl="2"><v-img class="py-5 px-5" contain src="@/assets/parceiros/unimedgo.png"></v-img></v-col>
                 </v-row>
             </div>
         </v-container>
@@ -60,7 +62,6 @@
     background-color: #FCA311;
     text-align: center;
     
-    text-align: center;
 
     .container-titulo{
       display: flex;
