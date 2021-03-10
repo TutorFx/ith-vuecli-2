@@ -4,6 +4,7 @@ import router from './router'
 import vuetify from './plugins/vuetify'
 import './registerServiceWorker'
 import axios from 'axios'
+import store from './store'
 
 Vue.prototype.$search = ''
 Vue.prototype.$cursos = []
@@ -19,5 +20,6 @@ Vue.config.productionTip = false
 new Vue({
   router,
   vuetify,
+  store,
   render: h => h(App)
 }).$mount('#app')
