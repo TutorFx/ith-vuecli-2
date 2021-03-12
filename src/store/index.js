@@ -12,6 +12,9 @@ export default new Vuex.Store({
     api: {
       cursos: [],
       cursosError: false,
+      curso: [],
+      cursoError: [],
+      cursoLoaded: [],
     }
   },
   mutations: {
@@ -20,11 +23,21 @@ export default new Vuex.Store({
     },
     getApi(state){
       axios.get('https://api.ithpos.com.br/wp-json/ith/v1/cursos/').then((resposta) => {
-        state.api.cursos = resposta
+        state.api.cursos = resposta.data
         state.api.cursosError = false
       }).catch((error) => {
         console.log('Ocorreu um erro comunicar API: ' + error);
         state.api.cursosError = true
+      })
+    },
+    getApiSingle(state, payload){
+      console.log(payload)
+      state.api.cursoLoaded = false
+      axios.get(`https://api.ithpos.com.br/wp-json/ith/v1/curso/${payload}/`).then((resposta) => {
+        state.api.curso[payload] = resposta.data
+        state.api.cursoLoaded = true
+      }).catch((error) => {
+        console.log('Ocorreu um erro comunicar API: ' + error);
       })
     }
   },

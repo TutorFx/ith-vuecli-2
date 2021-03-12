@@ -68,9 +68,8 @@ export default {
   data: () => ({
     //
   }),
-  mounted(){
+  created(){
     this.getApi()
-    console.log()
   },
   methods: {
     getApi(){

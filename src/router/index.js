@@ -11,9 +11,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/cursos/:slug/:modalidade',
+    path: '/curso/:slug/',
     name: 'Cursos',
-    component: () => import('../views/Home.vue')
+    component: () => import('../views/Curso-single.vue')
   },
   {
     path: '/trabalheconosco',

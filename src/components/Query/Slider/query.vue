@@ -3,7 +3,7 @@
     center-active
     >
         <v-slide-item
-            v-for="n in 15"
+            v-for="(curso, n) in filtro"
             :key="n"
             v-slot="{ active, toggle }"
         >
@@ -19,16 +19,30 @@
                 <v-scale-transition>
                     <div class="card-slide">
                         <div :class="active ? undefined : undefined" class="slider-item" color="warning" light v-ripple="{ class: `warning--text` }">
+                            <v-overlay
+                                :absolute="true"
+                                :value="active"
+                                color="#191a35"
+                                >
+                                <v-btn
+                                    color="#fca311"
+                                    depressed
+                                    class="mb-15"
+                                    :to="`/curso/${curso.slug}/`"
+                                >
+                                    Ver curso
+                                </v-btn>
+                            </v-overlay>
                             <div class="card-bg">
-                                <v-img cover height="250px" src="https://anitarezende.com.br/wp-content/uploads/2018/10/topo-consultoria-online.jpg"></v-img>
+                                <v-img cover height="250px" :src="curso.thumbnail.large"></v-img>
                                 <div class="card-gradient"  />
                             </div>
                             <div class="spacer" />
                             <div class="modality-bar">
-                                <h2>PÓS GRADUAÇÃO</h2>
+                                <h2>{{curso.tipo == 2 ? 'PÓS GRADUAÇÃO' : (curso.tipo == 1 ? 'EXTENSÃO' : '')}}</h2>
                             </div>
                             <div class="card-titulo">
-                                <h4>Enfermagem em urgência, Emergência e UTI</h4>
+                                <h4 v-html="curso.titulo"></h4>
                             </div>
                         </div>
                     </div>
@@ -42,7 +56,16 @@
 export default {
     watch: {
         '$store.state.api.cursos': function() {
-            
+            console.log( this.$store.state.api.cursos )
+        }
+    },
+    computed:{
+        filtro(){
+            let filtro
+
+            filtro = this.$store.state.api.cursos
+
+            return filtro
         }
     }
 }
@@ -102,7 +125,7 @@ $paddingslider: 5px;
                     overflow: hidden;
                 }
                 transform: translate(0);
-                font-size: 17px;
+                font-size: 16px;
                 max-width: 90%;
             }
         }
