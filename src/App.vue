@@ -69,7 +69,8 @@ export default {
     //
   }),
   created(){
-    this.getApi() // teste
+    this.getApi()
+    //isso é um teste mano
   },
   methods: {
     getApi(){
