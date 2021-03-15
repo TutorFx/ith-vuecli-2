@@ -54,37 +54,38 @@
             </v-col>
           </v-row>
         </v-col>
+        <v-expand-transition>
+          <v-col v-if="$store.state.api.cursoLoaded" cols="" xs="12" md="5" class="pb-0">
+            <div class="container-matricular">
 
-        <v-col cols="" xs="12" md="5" class="pb-0">
-          <div class="container-matricular">
-
-            <v-carousel height="100%" class="pa-2 pb-0" v-if="$store.state.api.cursoLoaded" v-model="model" delimiter-icon="mdi-minus" hide-delimiter-background :show-arrows="false" autoplay cycle>
-              <v-carousel-item>
-                <v-responsive :aspect-ratio="1/1">
-                  <v-img :src="curso.thumbnail.large" min-height="100%" min-width="100%" lazy cover>
-                  </v-img>
-                </v-responsive>
-              </v-carousel-item>
-              <v-carousel-item
-                v-for="(imagem, i) in curso.acf.galeria"
-                :key="i"
-              >
-                <v-responsive :aspect-ratio="1/1">
-                  <v-img :src="imagem" min-height="100%" min-width="100%" lazy cover>
-                  </v-img>
-                </v-responsive>
-              </v-carousel-item>
-            </v-carousel>
-            <div class="intersection">
-              <div class="intersection-stroke"></div>
-              <div class="intersection-botao">
-                <v-btn depressed dark color="#222C35">
-                  Me Matricular
-                </v-btn>
+              <v-carousel height="100%" class="pa-2 pb-0" v-model="model" delimiter-icon="mdi-minus" hide-delimiter-background :show-arrows="false" autoplay cycle>
+                <v-carousel-item>
+                  <v-responsive :aspect-ratio="1/1">
+                    <v-img :src="curso.thumbnail.large" min-height="100%" min-width="100%" lazy cover>
+                    </v-img>
+                  </v-responsive>
+                </v-carousel-item>
+                <v-carousel-item
+                  v-for="(imagem, i) in curso.acf.galeria"
+                  :key="i"
+                >
+                  <v-responsive :aspect-ratio="1/1">
+                    <v-img :src="imagem" min-height="100%" min-width="100%" lazy cover>
+                    </v-img>
+                  </v-responsive>
+                </v-carousel-item>
+              </v-carousel>
+              <div class="intersection">
+                <div class="intersection-stroke"></div>
+                <div class="intersection-botao">
+                  <v-btn depressed dark color="#222C35">
+                    Me Matricular
+                  </v-btn>
+                </div>
               </div>
             </div>
-          </div>
-        </v-col>
+          </v-col>
+        </v-expand-transition>
       </v-row>
     </v-container>
   </div>
