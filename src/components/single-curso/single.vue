@@ -4,6 +4,7 @@
         <section-two :curso="curso" />
         <section-four />
         <section-three />
+        <section-five />
     </div>
 </template>
 
@@ -12,13 +13,17 @@ import sectionOne from "@/components/single/section-one.vue"
 import sectionTwo from "@/components/single/section-two.vue"
 import sectionThree from "@/components/single/section-three.vue"
 import sectionFour from "@/components/single/section-four.vue"
+import sectionFive from "@/components/single/section-five.vue"
 
 export default {
     props: { curso: Object },
-    components: { sectionOne, sectionTwo, sectionThree, sectionFour },
+    components: { sectionOne, sectionTwo, sectionThree, sectionFour, sectionFive 
+    },
+    
     mounted() {
         console.log(this.$store.state.api.curso[this.$route.params.slug])
     },
+    
     watch: {
         '$store.state.api.curso': function() {
             console.log(this.$store.state.api.curso[this.$route.params.slug])
