@@ -1,3 +1,4 @@
+import '@fortawesome/fontawesome-free/css/all.css'
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib/framework';
 
@@ -13,5 +14,8 @@ export default new Vuetify({
           secondary: colors.amber1, // #FFCA28
         },
       },
+    },
+    icons: {
+      iconfont: 'fa',
     },
   })

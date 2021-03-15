@@ -8,9 +8,7 @@
       <section-six />
       <section-seven />
       <section-eight />
-      <section-nine />
-      <section-ten />
-        <section-eleven />
+
     </layout>
   </div>
 </template>
@@ -34,16 +32,13 @@ import sectionFive from "@/components/trabalhe-conosco/sectionfive.vue"
 import sectionSix from "@/components/trabalhe-conosco/sectionsix.vue"
 import sectionSeven from "@/components/trabalhe-conosco/sectionseven.vue"
 import sectionEight from "@/components/trabalhe-conosco/sectioneight.vue"
-import sectionNine from "@/components/trabalhe-conosco/sectionnine.vue"
-import sectionTen from "@/components/trabalhe-conosco/sectionten.vue"
-import sectionEleven from "@/components/trabalhe-conosco/sectioneleven.vue"
+
 
 
 export default {
   name: 'Home',
   components: {
-    layout, sectionTwo, sectionThree, sectionFour, sectionFive, sectionSix, sectionSeven, sectionEight, sectionNine, 
-    sectionTen, sectionEleven, 
+    layout, sectionTwo, sectionThree, sectionFour, sectionFive, sectionSix, sectionSeven, sectionEight
     
   },
 }

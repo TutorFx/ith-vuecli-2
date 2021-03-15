@@ -1,0 +1,165 @@
+<!-- CONFIG. HTML -->
+<template>
+  <div class="sectionCurso">
+    <div class="spacer" />
+    <v-container class="container-Curso">
+      <v-row>
+        <v-col cols="" xs="12" md="7" class="mb-0">
+          <div class="Titulo mb-3">Pós Graducação</div>
+
+          <div class="SubTitulo mb-1">
+            Enfermagem em Unidade de Terapia Intensiva Neonatal e Pediátrica
+          </div>
+
+          <ul>
+            <li>Enfermeiros</li>
+          </ul>
+
+          <div class="Desc mt-3 mb-7">
+            O <strong> especialista em UTI Neonatal </strong> deve ser
+            cuidadoso, gentil e sensível, pois o recém-nascido e crianças são
+            mais frágeis. O especialista coordena, planeja o atendimento,
+            organiza as rotinas do RN, visitas familiares, orienta na
+            amamentação e pode exercer
+            <strong> cargos de gestão </strong> dentro da Unidade.
+          </div>
+
+          <v-row>
+            <v-col cols="" xs="12" sm="12" md="6">
+              <div class="Inf">
+                <v-icon color="#fca311">fa-book</v-icon>
+                Reconhecida pelo MEC
+              </div>
+            </v-col>
+
+            <v-col cols="" xs="12" sm="12" md="6">
+              <div class="Inf">
+                <v-icon color="#fca311" class="mr-3">fa-wifi</v-icon>
+                100% on-line
+              </div>
+            </v-col>
+
+            <v-col cols="" xs="12" sm="12" md="6">
+              <div class="Inf">
+                <v-icon color="#fca311" class="mr-3">fa-clock</v-icon>
+                440 horas
+              </div>
+            </v-col>
+
+            <v-col cols="" xs="12" sm="12" md="6">
+              <div class="Inf">
+                <v-icon color="#fca311" class="mr-3">fa-hourglass-half</v-icon>
+                15 meses
+              </div>
+            </v-col>
+          </v-row>
+        </v-col>
+
+        <v-col cols="" xs="12" md="5" class="pb-0">
+          <div class="container-matricular">
+
+            <v-carousel height="300px" class="pa-2" v-if="$store.state.api.cursoLoaded" v-model="model" delimiter-icon="mdi-minus" hide-delimiter-background :show-arrows="false" autoplay cycle>
+              <v-carousel-item>
+                <v-img :src="curso.thumbnail.large" height="100%" width="100%" cover>
+                </v-img>
+              </v-carousel-item>
+              <v-carousel-item
+                v-for="(imagem, i) in curso.acf.galeria"
+                :key="i"
+              >
+                <v-img :src="imagem" height="100%" width="100%" cover>
+                </v-img>
+              </v-carousel-item>
+            </v-carousel>
+            <div class="intersection">
+              <div class="intersection-botao"></div>
+              <div class="intersection-stroke"></div>
+            </div>
+            <v-btn depressed small dark color="#222C35" class="mt-5 mb-1">
+              Me Matricular
+            </v-btn>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
+</template>
+
+<!-- CONFIG. SCSS -->
+<style lang="scss">
+.sectionCurso {
+  background-color: #222c35;
+  .spacer{
+      min-height: 20vh;
+  }
+  .container-Curso {
+    .Titulo {
+      font-family: "Gilmer";
+      font-size: 25px;
+      font-weight: 900px;
+      font-style: normal;
+
+      text-transform: uppercase;
+      color: #fca311;
+    }
+    .SubTitulo,
+    .Inf {
+      font-family: "Gilmer";
+      font-size: 20px;
+      font-weight: 500px;
+      font-style: normal;
+
+      color: white;
+    }
+    .Inf {
+      font-weight: normal;
+      font-size: 18px;
+    }
+    ul {
+      color: #fca311;
+      list-style: disc;
+    }
+    .Desc {
+      font-family: "Gilmer";
+      font-size: 15px;
+      font-weight: -300px;
+      color: white;
+      strong {
+        color: #fca311;
+      }
+    }
+    .container-matricular {
+
+      background-color: #fca311;
+      min-height: 100%;
+      img {
+        border-left: 10px solid #fca311;
+        border-right: 10px solid #fca311;
+      }
+      small {
+        color: red;
+      }
+    }
+  }
+}
+</style>
+
+<!-- CONFIG. JAVA SCRIPT -->
+<script>
+export default {
+  props: { curso: Object },
+  mounted() {
+    console.log(this.curso);
+  },
+  data: () => ({
+    model: 0,
+    colors: [
+      'primary',
+      'secondary',
+      'yellow darken-2',
+      'red',
+      'orange',
+    ],
+  }),
+};
+</script>

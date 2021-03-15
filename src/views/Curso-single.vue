@@ -1,13 +1,14 @@
 <template>
     <layout>
         <div id="curso-single">
-            {{ curso.titulo }}
+            <single :curso="curso" />
         </div>
     </layout>
 </template>
 
 <script>
 import layout from "@/components/Layout.vue"
+import single from "@/components/single-curso/single.vue"
 export default {
     created(){
         this.getCurso(this.$route.params.slug)
@@ -19,7 +20,7 @@ export default {
     },
     data(){
         return{
-            curso: [],
+            curso: {},
         }
     },
     watch: {
@@ -27,11 +28,11 @@ export default {
             console.log("atualizacoes")
             if(this.$store.state.api.cursoLoaded == true){
                 this.curso = this.$store.state.api.curso[this.$route.params.slug]
-                console.log(this.$store.state.api.curso[this.$route.params.slug].acf.finalizar)
+                console.log(this.$store.state.api.curso[this.$route.params.slug])
             }
         }
     },
-    components: { layout }
+    components: { layout, single }
 }
 </script>
 
