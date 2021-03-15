@@ -4,7 +4,7 @@
     <div class="spacer" />
     <v-container class="container-Curso">
       <v-row>
-        <v-col cols="" xs="12" md="7" class="mb-0">
+        <v-col cols="" xs="12" md="7" class="mb-5">
           <div class="Titulo mb-3">Pós Graducação</div>
 
           <div class="SubTitulo mb-1">
@@ -58,10 +58,12 @@
         <v-col cols="" xs="12" md="5" class="pb-0">
           <div class="container-matricular">
 
-            <v-carousel height="300px" class="pa-2" v-if="$store.state.api.cursoLoaded" v-model="model" delimiter-icon="mdi-minus" hide-delimiter-background :show-arrows="false" autoplay cycle>
+            <v-carousel height="100%" class="pa-2 pb-0" v-if="$store.state.api.cursoLoaded" v-model="model" delimiter-icon="mdi-minus" hide-delimiter-background :show-arrows="false" autoplay cycle>
               <v-carousel-item>
-                <v-img :src="curso.thumbnail.large" height="100%" width="100%" cover>
-                </v-img>
+                <v-responsive :aspect-ratio="1/1">
+                  <v-img :src="curso.thumbnail.large" height="100%" width="100%" cover>
+                  </v-img>
+                </v-responsive>
               </v-carousel-item>
               <v-carousel-item
                 v-for="(imagem, i) in curso.acf.galeria"
@@ -72,12 +74,13 @@
               </v-carousel-item>
             </v-carousel>
             <div class="intersection">
-              <div class="intersection-botao"></div>
               <div class="intersection-stroke"></div>
+              <div class="intersection-botao">
+                <v-btn depressed dark color="#222C35">
+                  Me Matricular
+                </v-btn>
+              </div>
             </div>
-            <v-btn depressed small dark color="#222C35" class="mt-5 mb-1">
-              Me Matricular
-            </v-btn>
           </div>
         </v-col>
       </v-row>
@@ -93,6 +96,23 @@
       min-height: 20vh;
   }
   .container-Curso {
+    .intersection{
+       height: 80px;
+      text-align: center;
+
+      .intersection-stroke{
+        height: 40px;
+        border: 1px solid #fff;
+        border-top: none;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: -18px;
+      }
+      .intersection-botao{
+
+      }
+    }
     .Titulo {
       font-family: "Gilmer";
       font-size: 25px;
