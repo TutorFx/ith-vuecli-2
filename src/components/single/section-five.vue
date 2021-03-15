@@ -103,7 +103,7 @@
 
         .Titulo{
             font-family: 'Gilmer';
-            font-size: 20px;
+            font-size: 19px;
             font-weight: bold;
             
             color: #222C35;
@@ -112,7 +112,7 @@
         }
 
         .Desc{
-            font-size: 18px;
+            font-size: 17px;
         }
 
     }
@@ -145,4 +145,4 @@ export default {
 
 }
 </script>
-        Underscore
+

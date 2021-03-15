@@ -5,6 +5,7 @@
         <section-four />
         <section-three />
         <section-five />
+        <section-six />
     </div>
 </template>
 
@@ -14,10 +15,11 @@ import sectionTwo from "@/components/single/section-two.vue"
 import sectionThree from "@/components/single/section-three.vue"
 import sectionFour from "@/components/single/section-four.vue"
 import sectionFive from "@/components/single/section-five.vue"
+import sectionSix from "@/components/single/section-six.vue"
 
 export default {
     props: { curso: Object },
-    components: { sectionOne, sectionTwo, sectionThree, sectionFour, sectionFive 
+    components: { sectionOne, sectionTwo, sectionThree, sectionFour, sectionFive, sectionSix
     },
     
     mounted() {
