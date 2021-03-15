@@ -61,7 +61,7 @@
             <v-carousel height="100%" class="pa-2 pb-0" v-if="$store.state.api.cursoLoaded" v-model="model" delimiter-icon="mdi-minus" hide-delimiter-background :show-arrows="false" autoplay cycle>
               <v-carousel-item>
                 <v-responsive :aspect-ratio="1/1">
-                  <v-img :src="curso.thumbnail.large" height="100%" width="100%" cover>
+                  <v-img :src="curso.thumbnail.large" min-height="100%" min-width="100%" lazy cover>
                   </v-img>
                 </v-responsive>
               </v-carousel-item>
@@ -69,8 +69,10 @@
                 v-for="(imagem, i) in curso.acf.galeria"
                 :key="i"
               >
-                <v-img :src="imagem" height="100%" width="100%" cover>
-                </v-img>
+                <v-responsive :aspect-ratio="1/1">
+                  <v-img :src="imagem" min-height="100%" min-width="100%" lazy cover>
+                  </v-img>
+                </v-responsive>
               </v-carousel-item>
             </v-carousel>
             <div class="intersection">

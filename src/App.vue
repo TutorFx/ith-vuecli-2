@@ -75,6 +75,9 @@ export default {
     getApi(){
       this.$store.commit("getApi");
     }
+  },
+  mounted() {
+    
   }
 };
 </script>
