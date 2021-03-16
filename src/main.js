@@ -5,6 +5,7 @@ import vuetify from './plugins/vuetify'
 import './registerServiceWorker'
 import store from './store'
 
+
 Vue.config.productionTip = false
 
 new Vue({

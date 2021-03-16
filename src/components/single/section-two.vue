@@ -7,8 +7,8 @@
         <v-col cols="" xs="12" md="7" class="mb-5">
           <div class="Titulo mb-3">Pós Graducação</div>
 
-          <div class="SubTitulo mb-1">
-            Enfermagem em Unidade de Terapia Intensiva Neonatal e Pediátrica
+          <div v-if="$store.state.api.cursoLoaded" class="SubTitulo mb-1">
+            {{ curso.titulo }}
           </div>
 
           <ul>
@@ -82,7 +82,9 @@
                     Me Matricular
                   </v-btn>
                 </div>
+                <small class="mb-6">Últimas Vagas</small>
               </div>
+
             </div>
           </v-col>
         </v-expand-transition>
@@ -100,7 +102,7 @@
   }
   .container-Curso {
     .intersection{
-       height: 80px;
+      min-height: 90px;
       text-align: center;
 
       .intersection-stroke{
