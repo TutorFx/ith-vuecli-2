@@ -42,7 +42,7 @@ export default {
                 //
             }
             .gilmer{
-                font-size: 30px;
+                font-size: 24px;
             }
         }
     }    
