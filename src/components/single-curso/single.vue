@@ -4,7 +4,7 @@
         <section-two :curso="curso" />
         <section-four />
         <section-three />
-        <section-five />
+        <section-five :curso="curso" />
         <section-six />
     </div>
 </template>
