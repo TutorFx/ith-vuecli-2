@@ -3,7 +3,7 @@
   <div class="sectionCurso">
     <div class="spacer" />
     <v-container class="container-Curso">
-      <v-row>
+      <v-row align="center">
         <v-col cols="" xs="12" md="7" class="mb-5">
           <div class="Titulo mb-3">Pós Graducação</div>
 
