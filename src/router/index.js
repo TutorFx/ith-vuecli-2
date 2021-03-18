@@ -43,7 +43,7 @@ const routes = [
   {
     path: '/planejamentoestrategico',
     name: 'Planejamento Estratégico',
-    component: () => import('../views/planejamento-estratégico.vue')
+    component: () => import('../views/planejamento-estrategico.vue')
   },
   {
     path: '/graduacao',
@@ -166,8 +166,6 @@ const routes = [
     component: () => import('../views/transformith-science.vue')
   }
   
-
-
 
   // {
   //   path: '/about',
