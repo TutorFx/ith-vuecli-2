@@ -43,7 +43,7 @@ const routes = [
   {
     path: '/planejamentoestrategico',
     name: 'Planejamento Estratégico',
-    component: () => import('../views/planejamento-estratégico.vue')
+    component: () => import('../views/planejamento-estrategico.vue')
   },
   {
     path: '/graduacao',
@@ -93,7 +93,7 @@ const routes = [
   {
     path: '/calendarioacademico',
     name: 'Calendario Academico',
-    component: () => import('../views/calendarioa-cademico.vue')
+    component: () => import('../views/calendario-academico.vue')
   },
   {
     path: '/documentosinstitucionais',
