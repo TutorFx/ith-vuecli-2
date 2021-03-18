@@ -51,11 +51,6 @@ const routes = [
     component: () => import('../views/graduacao.vue')
   },
   {
-    path: '/cursos',
-    name: 'Cursos',
-    component: () => import('../views/cursos.vue')
-  },
-  {
     path: '/posgraduacao',
     name: 'Pós-Graduação',
     component: () => import('../views/pos-graduacao.vue')
