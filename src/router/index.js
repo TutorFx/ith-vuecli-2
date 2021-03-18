@@ -18,7 +18,12 @@ const routes = [
   {
     path: '/trabalheconosco',
     name: 'Trabalhe Conosco',
-    component: () => import('../views/trabalhe-conosco.vue') // http://localhost:8080/trabalheconosco
+    component: () => import('../views/trabalhe-conosco.vue')
+  },
+  {
+    path: '/institucional',
+    name: 'Institucional',
+    component: () => import('../views/Institucional.vue')
   }
   // {
   //   path: '/about',
