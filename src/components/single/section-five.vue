@@ -34,7 +34,7 @@
                     </v-col></v-row>
                     <v-row align="center" justify="center"><v-col cols="2">
                         <v-icon color="#222C35" size="50" aria-hidden="false">
-                            fa-microphone-alt
+                            fa-tablet-alt
                         </v-icon>
                         </v-col><v-col>
                         <div class="Titulo">E-book exclusivo </div>
