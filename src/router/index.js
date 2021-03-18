@@ -24,7 +24,35 @@ const routes = [
     path: '/institucional',
     name: 'Institucional',
     component: () => import('../views/Institucional.vue')
+  },
+  {
+    path: '/quemsomos',
+    name: 'Quem Somos',
+    component: () => import('../views/quem-somos.vue')
+  },
+  {
+    path: '/sobreith',
+    name: 'Sobre ITH',
+    component: () => import('../views/sobre-ith.vue')
+  },
+  {
+    path: '/estatutoregimento',
+    name: 'Estatuto / Regimento',
+    component: () => import('../views/estatuto-regimento.vue')
+  },
+  {
+    path: '/planejamentoestrategico',
+    name: 'Planejamento Estratégico',
+    component: () => import('../views/planejamento-estratégico.vue')
+  },
+  {
+    path: '/graduacao',
+    name: 'Graduacao',
+    component: () => import('../views/graduacao.vue')
   }
+
+
+
   // {
   //   path: '/about',
   //   name: 'About',

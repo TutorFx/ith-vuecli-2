@@ -115,7 +115,7 @@
             }
             .SubTitulo{
                 font-size: 14px;
-                font-weight: normal;
+                font-weight: 200;
                 margin-bottom: 7px;
             }
             
@@ -124,7 +124,7 @@
                 margin-bottom: 7px;
                 font-size: 12px;
 
-                font-weight: normal;
+                font-weight: 100;
 
             }
 
