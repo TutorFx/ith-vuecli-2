@@ -11,7 +11,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/curso/:slug/',
+    path: '/curso/:slug/:select',
     name: 'Cursos',
     component: () => import('../views/Curso-single.vue')
   },

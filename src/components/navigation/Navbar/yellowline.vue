@@ -3,11 +3,11 @@
    <v-container>
        <v-row align-content="center" justify="center">
            <v-col class="yellowlinks" align="center" cols="7">
-               <v-btn small text>HOME</v-btn>
-               <v-btn small text>INSTITUCIONAL</v-btn>
-               <v-btn small text>BLOG</v-btn>
-               <v-btn small text>ACESSO</v-btn>
-               <v-btn small text>OUVIDORIA</v-btn>
+               <v-btn to="/" small text>HOME</v-btn>
+               <v-btn to="/institucional" small text>INSTITUCIONAL</v-btn>
+               <v-btn to="/blog" small text>BLOG</v-btn>
+               <v-btn to="/acesso" small text>ACESSO</v-btn>
+               <v-btn to="/ouvidoria" small text>OUVIDORIA</v-btn>
            </v-col>
            <v-col align="center">
                <v-btn class="mr-2" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fca311">fab fa-whatsapp</v-icon></v-btn>

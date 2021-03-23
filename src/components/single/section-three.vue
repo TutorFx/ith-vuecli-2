@@ -1,7 +1,7 @@
 <!-- CONFIG. HTML -->
 <template>
     <div class="containerHist">
-        <v-container class="my-8">
+        <v-container class="py-15">
             <v-row>
                 <v-col cols="" xs="12" md="12" lg="12">
                     <div class="Hist">

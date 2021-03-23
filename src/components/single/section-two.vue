@@ -5,7 +5,7 @@
     <v-container class="container-Curso">
       <v-row align="center">
         <v-col cols="" xs="12" md="7" class="mb-5">
-          <div class="Titulo mb-3">Pós Graducação</div>
+          <div v-if="$store.state.api.cursoLoaded" class="Titulo mb-3">{{curso.acf.categoria == 2 ? 'Pós Graducação' : curso.acf.categoria == 1 ? 'Extensão' : ''}}</div>
 
           <div v-if="$store.state.api.cursoLoaded" class="SubTitulo mb-1">
             {{ curso.titulo }}
@@ -15,16 +15,10 @@
             <li>Enfermeiros</li>
           </ul>
 
-          <div class="Desc mt-3 mb-7">
-            O <strong> especialista em UTI Neonatal </strong> deve ser
-            cuidadoso, gentil e sensível, pois o recém-nascido e crianças são
-            mais frágeis. O especialista coordena, planeja o atendimento,
-            organiza as rotinas do RN, visitas familiares, orienta na
-            amamentação e pode exercer
-            <strong> cargos de gestão </strong> dentro da Unidade.
+          <div v-if="$store.state.api.cursoLoaded" v-html="curso.acf.descricao" class="Desc mt-3 mb-7">
           </div>
 
-          <v-row>
+          <v-row v-if="$store.state.api.cursoLoaded">
             <v-col cols="" xs="12" sm="12" md="6">
               <div class="Inf">
                 <v-icon color="#fca311">fa-book</v-icon>
@@ -42,7 +36,7 @@
             <v-col cols="" xs="12" sm="12" md="6">
               <div class="Inf">
                 <v-icon color="#fca311" class="mr-3">fa-clock</v-icon>
-                440 horas
+                {{curso.acf.carga_horaria_h}} horas
               </div>
             </v-col>
 
@@ -60,8 +54,8 @@
 
               <v-carousel height="100%" class="pa-2 pb-0" v-model="model" delimiter-icon="mdi-minus" hide-delimiter-background :show-arrows="false" autoplay cycle>
                 <v-carousel-item>
-                  <v-responsive :aspect-ratio="1/1">
-                    <v-img :src="curso.thumbnail.large" min-height="100%" min-width="100%" lazy cover>
+                  <v-responsive width="100%" max-height="460px" :aspect-ratio="4/3">
+                    <v-img :src="curso.thumbnail.large" :aspect-ratio="4/3" min-height="100%" min-width="100%" height="100%" lazy cover>
                     </v-img>
                   </v-responsive>
                 </v-carousel-item>
@@ -69,7 +63,7 @@
                   v-for="(imagem, i) in curso.acf.galeria"
                   :key="i"
                 >
-                  <v-responsive :aspect-ratio="1/1">
+                  <v-responsive width="100%" max-height="460px" :aspect-ratio="4/3">
                     <v-img :src="imagem" min-height="100%" min-width="100%" lazy cover>
                     </v-img>
                   </v-responsive>
