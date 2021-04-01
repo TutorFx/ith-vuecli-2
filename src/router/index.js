@@ -10,10 +10,20 @@ const routes = [
     name: 'Home',
     component: Home
   },
+  // {
+  //   path: '/curso/:slug/',
+  //   name: 'Select',
+  //   component: () => import('../views/Curso-select.vue')
+  // },
   {
-    path: '/curso/:slug/:select',
-    name: 'Cursos',
+    path: '/curso/:slug/',
+    name: 'Curso',
     component: () => import('../views/Curso-single.vue')
+  },
+  {
+    path: '/cursos/',
+    name: 'Cursos',
+    component: () => import('../views/cursos.vue')
   },
   {
     path: '/trabalheconosco',

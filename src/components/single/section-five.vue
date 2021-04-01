@@ -98,7 +98,6 @@
         font-weight: normal;
         font-style: normal;
         font-display: swap;
-
         color: #222C35;
         .reset-ul{
            list-style-type:none;
@@ -109,7 +108,6 @@
             font-weight: 900px;
             color: black;
         }
-
         ul{
             margin-top: 10px;
             list-style: disc;
@@ -117,12 +115,9 @@
         li{
             margin-bottom: 10px;
         }
-
         strong{
             color: #FCA311;
         }
-
-
         .Titulo{
             font-family: 'Gilmer';
             font-size: 19px;
@@ -132,20 +127,10 @@
             margin-top: 7px;
 
         }
-
         .Desc{
             font-size: 17px;
         }
-
     }
-
-
-
-
-
-
-
-
 }
 </style>
 

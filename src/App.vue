@@ -56,6 +56,16 @@
   }
 }
 
+$body-font-family: 'Gilmer';
+$title-font: 'Gilmer';
+
+.v-application {
+   font-family: $body-font-family, sans-serif !important;
+    .title { // To pin point specific classes of some components
+       font-family: $title-font, sans-serif !important;
+    }
+ }
+
 </style>
 
 <script>

@@ -18,7 +18,7 @@
     <v-container>
         <underscore class="mb-5" :linecolor="'#FCA311'">MAIS DESEJADOS</underscore>
     </v-container>
-    <query class="mb-5" />
+    <query type="slide" class="mb-5" />
   </div>
 </template>
 

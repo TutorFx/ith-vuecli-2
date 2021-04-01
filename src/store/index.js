@@ -7,7 +7,10 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     search:{
-      input: 'teste',
+      input: '',
+      area: [],
+      modalidade: [],
+      tipocurso: []
     },
     api: {
       cursos: [],
@@ -20,6 +23,15 @@ export default new Vuex.Store({
   mutations: {
     changeSearch(state, payload){
       state.search.input = payload
+    },
+    area(state, payload){
+      state.search.area = payload
+    },
+    modalidade(state, payload){
+      state.search.modalidade = payload
+    },
+    tipocurso(state, payload){
+      state.search.tipocurso = payload
     },
     getApi(state){
       axios.get('https://api.ithpos.com.br/wp-json/ith/v1/cursos/').then((resposta) => {

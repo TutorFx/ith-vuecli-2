@@ -8,7 +8,7 @@
                 
                 <div class="menu">
                     <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark>Vestibular</v-btn>
-                    <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark>Cursos</v-btn>
+                    <v-btn to="/cursos" text :small="$vuetify.breakpoint.lg ? true : false" dark>Cursos</v-btn>
                     <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark>Acadêmico</v-btn>
                     <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark>Inovação e pesquisa</v-btn>
                     <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark class="transformith amber--text mr-5">Transformith</v-btn>

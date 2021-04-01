@@ -11,7 +11,7 @@
                     <div>
                         <div class="img-item-wraper">
                             <div class="img-item">
-                                <v-img height="90vh" width="100%" contain :src="item.src"></v-img>
+                                <v-img contain :src="item.src"></v-img>
                             </div>
                             <div class="botoes">
 
@@ -67,7 +67,6 @@ export default {
         position: absolute;
         bottom: 0;
         left: 0;
-        padding: 50px;
     }
   }
 </style>

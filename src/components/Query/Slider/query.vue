@@ -1,72 +1,134 @@
 <template>
-    <v-slide-group
-    center-active
-    >
-        <v-slide-item
-            v-for="(curso, n) in filtro"
-            :key="n"
-            v-slot="{ active, toggle }"
-        >
-            <v-card
-            height="330"
-            width="270"
-            @click="toggle"
-            :ripple="false"
-            elevation="0"
-            class="mx-2 card-slide-item"
-            color="transparent"
+    <div>
+        <v-slide-group
+        center-active
+        v-if="type == 'slide'"
+        >   
+            <v-slide-item v-slot="{ }">
+                <div>
+                    <div v-if="$vuetify.breakpoint.lg" :style="`width:${( $vuetify.breakpoint.width - 980 )/2 -60}px;`"></div>
+                    <div v-if="$vuetify.breakpoint.xl" :style="`width:${( $vuetify.breakpoint.width - 1200 )/2 -60}px;`"></div>
+                </div>
+            </v-slide-item>
+            <v-slide-item
+                v-for="(curso, n) in filtro"
+                :key="n"
+                v-slot="{ active, toggle }"
             >
-                <v-scale-transition>
-                    <div class="card-slide">
-                        <div :class="active ? undefined : undefined" class="slider-item" color="warning" light v-ripple="{ class: `warning--text` }">
-                            <v-overlay
-                                :absolute="true"
-                                :value="active"
-                                color="#191a35"
-                                >
-                                <v-btn
-                                    color="#fca311"
-                                    depressed
-                                    class="mb-15"
-                                    :to="`/curso/${curso.slug}/`"
-                                >
-                                    Ver curso
-                                </v-btn>
-                            </v-overlay>
-                            <div class="card-bg">
-                                <v-img cover height="250px" :src="curso.thumbnail.large"></v-img>
-                                <div class="card-gradient"  />
-                            </div>
-                            <div class="spacer" />
-                            <div class="modality-bar">
-                                <h2>{{curso.tipo == 2 ? 'PÓS GRADUAÇÃO' : (curso.tipo == 1 ? 'EXTENSÃO' : '')}}</h2>
-                            </div>
-                            <div class="card-titulo">
-                                <h4 v-html="curso.titulo"></h4>
+                <v-card
+                height="330"
+                width="270"
+                @click="toggle"
+                :ripple="false"
+                elevation="0"
+                class="mx-2 card-slide-item"
+                color="transparent"
+                >
+                    <v-scale-transition>
+                        <div class="card-slide">
+                            <div :class="active ? undefined : undefined" class="slider-item" color="warning" light v-ripple="{ class: `warning--text` }">
+                                <v-overlay
+                                    :absolute="true"
+                                    :value="active"
+                                    color="#191a35"
+                                    >
+                                    <v-btn
+                                        color="#fca311"
+                                        depressed
+                                        class="mb-15"
+                                        :to="`/curso/${curso.slug}/`"
+                                    >
+                                        Ver curso
+                                    </v-btn>
+                                </v-overlay>
+                                <div class="card-bg">
+                                    <v-img cover height="250px" :src="curso.thumbnail.large"></v-img>
+                                    <div class="card-gradient"  />
+                                </div>
+                                <div class="spacer" />
+                                <div class="modality-bar">
+                                    <h2>{{curso.tipo == 2 ? 'PÓS GRADUAÇÃO' : (curso.tipo == 1 ? 'EXTENSÃO' : '')}}</h2>
+                                </div>
+                                <div class="card-titulo">
+                                    <h4 v-html="curso.titulo"></h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </v-scale-transition>
-            </v-card>
-        </v-slide-item>
-    </v-slide-group>
+                    </v-scale-transition>
+                </v-card>
+            </v-slide-item>
+        </v-slide-group>
+        <v-row v-if="type == 'list'">
+            <v-col
+            v-for="(curso, n) in filtro"
+            :key="n"
+            align="center">
+                <v-card
+                height="330"
+                width="270"
+                :ripple="false"
+                elevation="0"
+                class="card-slide-item text-left"
+                color="transparent"
+                :to="`/curso/${curso.slug}/`"
+                >
+                    <v-scale-transition>
+                        <div class="card-slide">
+                            <div class="slider-item" color="warning" light v-ripple="{ class: `warning--text` }">
+                                <div class="card-bg">
+                                    <v-img cover height="250px" width="260px" :src="curso.thumbnail.large"></v-img>
+                                    <div class="card-gradient"  />
+                                </div>
+                                <div class="spacer" />
+                                <div class="modality-bar">
+                                    <h2>{{curso.tipo == 2 ? 'PÓS GRADUAÇÃO' : (curso.tipo == 1 ? 'EXTENSÃO' : '')}}</h2>
+                                </div>
+                                <div class="card-titulo">
+                                    <h4 v-html="curso.titulo"></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </v-scale-transition>
+                </v-card>
+            </v-col>
+        </v-row>
+    </div>
 </template>
 
 <script>
+import _ from "lodash"
 export default {
     watch: {
         '$store.state.api.cursos': function() {
-            console.log( this.$store.state.api.cursos )
+            //console.log( this.$store.state.api.cursos )
+        },
+        '$store.state.search.modalidade': function() {
+            //console.log(this.$store.state.search.modalidade);
         }
     },
     computed:{
         filtro(){
             let filtro
-
             filtro = this.$store.state.api.cursos
-
+            var modalidadeArr = []
+            for (this.m in this.$store.state.search.modalidade){
+                modalidadeArr.push(this.$store.state.search.modalidade[this.m].id)
+            }
+            if(this.$store.state.search.modalidade.length !== 0){
+                filtro = _.filter(filtro, function(o) { return modalidadeArr.includes(o.tipo); });
+            }
+            console.log(modalidadeArr)
             return filtro
         }
+    },
+    props:{
+        type: {
+            type: String,
+            required: true
+        }
+    },
+    mounted(){
+        console.log(this.$vuetify.breakpoint.width)
     }
 }
 </script>
