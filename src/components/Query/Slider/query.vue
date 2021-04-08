@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="spacer" />
                                 <div class="modality-bar">
-                                    <h2>{{curso.tipo == 2 ? 'PÓS GRADUAÇÃO' : (curso.tipo == 1 ? 'EXTENSÃO' : '')}}</h2>
+                                    <h2>{{curso.tipo == '1' ? 'PÓS GRADUAÇÃO' : (curso.tipo == '2' ? 'EXTENSÃO' : '')}}</h2>
                                 </div>
                                 <div class="card-titulo">
                                     <h4 v-html="curso.titulo"></h4>
@@ -108,16 +108,59 @@ export default {
     },
     computed:{
         filtro(){
-            let filtro
+            let filtro = []
             filtro = this.$store.state.api.cursos
+            // Tipo
+            var tipo = this.$store.state.search.tipocurso
+            if(this.$store.state.search.tipocurso.length !== 0){
+                filtro = _.filter(filtro, function(o) { return tipo.includes(o.tipo); });
+            }
+            // Modalidade
             var modalidadeArr = []
             for (this.m in this.$store.state.search.modalidade){
                 modalidadeArr.push(this.$store.state.search.modalidade[this.m].id)
             }
             if(this.$store.state.search.modalidade.length !== 0){
-                filtro = _.filter(filtro, function(o) { return modalidadeArr.includes(o.tipo); });
+                filtro = _.filter(filtro, function(o) { return modalidadeArr.includes(o.modalidade); });
             }
-            console.log(modalidadeArr)
+            // Area de Atuação
+            let area = this.$store.state.search.area
+            if(this.$store.state.search.area.length !== 0){
+                //
+                
+                filtro = _.filter(filtro, function(o) { 
+                    var ipa = []
+                    Object.entries(o.publicoAlvo).map(x => {
+                        ipa.push(x[1].name);
+                    })
+                    //console.log(ipa)
+                    //console.log(area)
+                    return area.some( ai => ipa.includes(ai) )
+                });
+                //Object.entries(filtro).map()
+            }
+            this.$store.commit("cursofiltrado", filtro)
+            // Pesquisa de Texto
+            var busca = this.$store.state.search.input
+            function removeAcento(text){
+                text = text.toLowerCase();                                                         
+                text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
+                text = text.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
+                text = text.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
+                text = text.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
+                text = text.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
+                text = text.replace(new RegExp('[Ç]','gi'), 'c');
+                return text;  
+            }
+            if(this.$store.state.search.input != undefined && this.$store.state.search.input != ''){
+                filtro = _.filter(filtro, function(o) {
+                    var btitulo = removeAcento(o.titulo.toLowerCase())
+                    var bbusca = removeAcento(busca.toLowerCase())
+                    console.log()
+                    return btitulo.includes(bbusca)
+                })
+            }
+            console.log(filtro.length)
             return filtro
         }
     },
@@ -129,7 +172,7 @@ export default {
     },
     mounted(){
         console.log(this.$vuetify.breakpoint.width)
-    }
+    },
 }
 </script>
 

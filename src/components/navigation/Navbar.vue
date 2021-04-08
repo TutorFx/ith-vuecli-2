@@ -14,7 +14,7 @@
                     <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark class="transformith amber--text mr-5">Transformith</v-btn>
                 </div>
 
-                <v-text-field class="busca" color="amber" dark v-model="search">
+                <v-text-field class="busca" color="amber" dark v-model="search" @keyup.enter="buscar">
                     <v-icon slot="append" color="amber" @click="buscar" dark>mdi-magnify</v-icon>
                 </v-text-field>
 
@@ -116,6 +116,8 @@ export default {
         },
         buscar(){
             this.$store.commit("changeSearch", this.search);
+            if(this.$route.name != 'Cursos')
+            this.$router.push('Cursos')  
         }
     },
     mounted(){
@@ -126,7 +128,7 @@ export default {
     },
     watch:{
         '$store.state.search.input': function() {
-            console.log(this.$store.state.search.input);
+            //console.log(this.$store.state.search.input);
         }
     }
 }
