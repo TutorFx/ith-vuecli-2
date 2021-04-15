@@ -17,15 +17,32 @@
                 <v-text-field class="busca" color="amber" dark v-model="search" @keyup.enter="buscar">
                     <v-icon slot="append" color="amber" @click="buscar" dark>mdi-magnify</v-icon>
                 </v-text-field>
-
+                
+                <v-badge v-if="storage.carrinho.length > 0" :content="storage.carrinho.length" color="#FCA311" overlap dark>
+                    <v-btn
+                    class="ml-2"
+                    fab
+                    dark
+                    small
+                    text
+                    color="amber"
+                    to="/carrinho"
+                    >
+                        <v-icon dark>
+                            mdi-cart
+                        </v-icon>
+                    </v-btn>
+                </v-badge>
                 <v-btn
-                class="mx-2"
-                fab
-                dark
-                small
-                text
-                color="amber"
-                >
+                    v-else
+                    class="ml-2"
+                    fab
+                    dark
+                    small
+                    text
+                    color="amber"
+                    to="/carrinho"
+                    >
                     <v-icon dark>
                         mdi-cart
                     </v-icon>
@@ -36,7 +53,7 @@
         <div v-if="$vuetify.breakpoint.md || $vuetify.breakpoint.sm || $vuetify.breakpoint.xs">
             <div>
                 <v-app-bar
-                color="#191A35"
+                color="#222C35"
                 dense
                 dark
                 >
@@ -46,7 +63,12 @@
 
                 <v-spacer></v-spacer>
 
-                <v-btn icon>
+                <v-badge v-if="storage.carrinho.length > 0" :content="storage.carrinho.length" color="#FCA311" left bottom overlap>
+                    <v-btn icon to="/carrinho">
+                        <v-icon>mdi-cart</v-icon>
+                    </v-btn>
+                </v-badge>
+                <v-btn v-else icon to="/carrinho">
                     <v-icon>mdi-cart</v-icon>
                 </v-btn>
 
@@ -55,48 +77,101 @@
                 </v-btn>
 
                 </v-app-bar>
-
-                <v-navigation-drawer
-                v-model="drawer"
-                absolute
-                left
-                temporary
-                class="drawer-mobile-menu"
+                <v-sheet
                 >
-                    <v-list
-                        nav
-                        dense
+                    <v-navigation-drawer
+                    v-model="drawer"
+                    absolute
+                    right
+                    dark
+                    temporary
+                    class="drawer-mobile-menu"
+                    color="#222C35"
                     >
-                        <v-list-item-group
-                        active-class="primary--text"
+                        <v-list
+                            nav
+                            dense
                         >
-                        <v-list-item>
-                            <v-list-item-title>Cursos</v-list-item-title>
-                        </v-list-item>
+                            <v-list-item-group
+                            >
+                            <v-list-item to="/">
+                                <v-list-item-icon>
+                                    <v-icon> mdi-home </v-icon>
+                                </v-list-item-icon>
+                                <v-list-item-title>Home</v-list-item-title>
+                            </v-list-item>
 
-                        <v-list-item>
-                            <v-list-item-title>Acadêmico</v-list-item-title>
-                        </v-list-item>
+                            <v-list-item to="/institucional">
+                                <v-list-item-icon>
+                                    <v-icon> mdi-creation </v-icon>
+                                </v-list-item-icon>
+                                <v-list-item-title>Institucional</v-list-item-title>
+                            </v-list-item>
 
-                        <v-list-item>
-                            <v-list-item-title>Quem somos</v-list-item-title>
-                        </v-list-item>
+                            <v-list-item to="/blog">
+                                <v-list-item-icon>
+                                    <v-icon> mdi-post </v-icon>
+                                </v-list-item-icon>
+                                <v-list-item-title>Blog</v-list-item-title>
+                            </v-list-item>
 
-                        <v-list-item>
-                            <v-list-item-title>Blog</v-list-item-title>
-                        </v-list-item>
+                            <v-list-item>
+                                <v-list-item-icon>
+                                    <v-icon> mdi-login </v-icon>
+                                </v-list-item-icon>
+                                <v-list-item-title>Acesso</v-list-item-title>
+                            </v-list-item>
 
-                        <v-list-item>
-                            <v-list-item-title>Acesso</v-list-item-title>
-                        </v-list-item>
+                            <v-list-item>
+                                <v-list-item-icon>
+                                    <v-icon> mdi-phone </v-icon>
+                                </v-list-item-icon>
+                                <v-list-item-title>Ouvidoria</v-list-item-title>
+                            </v-list-item>
 
-                        <v-list-item>
-                            <v-list-item-title>Transformith</v-list-item-title>
-                        </v-list-item>
+                            <v-divider></v-divider>
 
-                        </v-list-item-group>
-                    </v-list>
-                </v-navigation-drawer>
+                            <v-list-item>
+                                <v-list-item-icon>
+                                    <v-icon> mdi-draw </v-icon>
+                                </v-list-item-icon>
+                                <v-list-item-title>Vestibular</v-list-item-title>
+                            </v-list-item>
+
+                            <v-list-item to="/cursos">
+                                <v-list-item-icon>
+                                    <v-icon> mdi-diamond-stone </v-icon>
+                                </v-list-item-icon>
+                                <v-list-item-title>Cursos</v-list-item-title>
+                            </v-list-item>
+
+                            <v-list-item>
+                                <v-list-item-icon>
+                                    <v-icon> mdi-teach </v-icon>
+                                </v-list-item-icon>
+                                <v-list-item-title>Acadêmico</v-list-item-title>
+                            </v-list-item>
+
+                            <v-list-item>
+                                <v-list-item-icon>
+                                    <v-icon> mdi-feature-search-outline </v-icon>
+                                </v-list-item-icon>
+                                <v-list-item-title>Inovação e pesquisa</v-list-item-title>
+                            </v-list-item>
+
+                            <v-list-item>
+                                <v-list-item-icon>
+                                    <v-icon> mdi-movie-open </v-icon>
+                                </v-list-item-icon>
+                                <v-list-item-title>Transformith</v-list-item-title>
+                            </v-list-item>
+
+                            <v-divider></v-divider>
+
+                            </v-list-item-group>
+                        </v-list>
+                    </v-navigation-drawer>
+                </v-sheet>
             </div>
         </div>
     </div>

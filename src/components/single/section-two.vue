@@ -3,7 +3,7 @@
   <div class="sectionCurso">
     <div class="spacer" />
     <v-container class="container-Curso">
-      <v-row align="center">
+      <v-row align="end">
         <v-col cols="" xs="12" md="7" class="mb-5">
           <div v-if="$store.state.api.cursoLoaded" class="Titulo mb-3">{{curso.acf.categoria == 2 ? 'Pós Graducação' : curso.acf.categoria == 1 ? 'Extensão' : ''}}</div>
 
@@ -72,7 +72,7 @@
               <div class="intersection">
                 <div class="intersection-stroke"></div>
                 <div class="intersection-botao">
-                  <v-btn depressed dark color="#222C35">
+                  <v-btn depressed dark color="#222C35" @click="curso.acf.id != undefined ? storage.carrinho.push(JSON.stringify({img: curso.thumbnail.large, id: curso.acf.id, url: rota})) :''">
                     Me Matricular
                   </v-btn>
                 </div>
@@ -168,10 +168,17 @@
 export default {
   props: { curso: Object },
   mounted() {
-    console.log(this.curso);
+    //console.log(this.$router.currentRoute.fullPath);
+    this.rota = this.$router.currentRoute.fullPath
   },
   data: () => ({
     model: 0,
+    rota: ''
   }),
+  methods:{
+    add(object){
+      this.$store.commit("cartStore", object)
+    }
+  }
 };
 </script>

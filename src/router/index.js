@@ -169,6 +169,11 @@ const routes = [
     path: '/transformithscience',
     name: 'Transformith Science',
     component: () => import('../views/transformith-science.vue')
+  },
+  {
+    path: '/carrinho',
+    name: 'Carrinho',
+    component: () => import('../views/carrinho.vue')
   }
   
 

@@ -13,20 +13,6 @@
     </div>
 </template>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- CONFIG. SCSS -->
 <style lang="scss">
     .containerHist{
@@ -53,22 +39,6 @@
 
 </style>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- CONFIG. JAVA SCRIPT -->
 <script>
 
 export default {

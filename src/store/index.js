@@ -18,7 +18,12 @@ export default new Vuex.Store({
       curso: [],
       cursoError: [],
       cursoLoaded: [],
-      cursoFiltrado: []
+      cursoFiltrado: [],
+      eduq: [],
+      eduqerror: []
+    },
+    carrinho:{
+      array: []
     }
   },
   mutations: {
@@ -42,7 +47,7 @@ export default new Vuex.Store({
       state.api.cursoFiltrado = payload
     },
     getApi(state){
-      axios.get('http://api.ith.local/wp-json/ith/v1/cursos/').then((resposta) => {
+      axios.get('https://v2.ithpos.com.br/api/index.php?rest_route=/ith/v1/cursos/').then((resposta) => {
         state.api.cursos = resposta.data
         state.api.cursosError = false
       }).catch((error) => {
@@ -53,13 +58,26 @@ export default new Vuex.Store({
     getApiSingle(state, payload){
       console.log(payload)
       state.api.cursoLoaded = false
-      axios.get(`http://api.ith.local/wp-json/ith/v1/curso/${payload}/`).then((resposta) => {
+      axios.get(`https://v2.ithpos.com.br/api/index.php?rest_route=/ith/v1/curso/${payload}/`).then((resposta) => {
         state.api.curso[payload] = resposta.data
         state.api.cursoLoaded = true
       }).catch((error) => {
         console.log('Ocorreu um erro comunicar API: ' + error);
       })
-    }
+    },
+    getEduq(state){
+      axios.get('https://apisistema.eduqtecnologia.com.br/inscricao-online/cursos-abertos?dominio=ith').then((resposta) => {
+        state.api.eduq = resposta.data.resultado
+        state.api.eduqerror = false
+      }).catch((error) => {
+        console.log('Ocorreu um erro comunicar API: ' + error);
+        state.api.eduqerror = true
+      })
+    },
+    cartStore(state, payload){
+      state.carrinho.array.push(payload);
+      console.log(state.carrinho.array);
+    },
   },
   actions: {
   },

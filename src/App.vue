@@ -84,6 +84,7 @@ export default {
   methods: {
     getApi(){
       this.$store.commit("getApi");
+      this.$store.commit("getEduq");
     }
   },
   mounted() {
