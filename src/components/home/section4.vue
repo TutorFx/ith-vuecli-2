@@ -16,7 +16,7 @@
         </v-row>
     </v-container>
     <v-container>
-        <underscore class="mb-5" :linecolor="'#FCA311'">MAIS DESEJADOS</underscore>
+        <underscore class="mb-5" :linecolor="'#FCA311'"><h3>MAIS DESEJADOS</h3></underscore>
     </v-container>
     <query type="slide" class="mb-5" />
   </div>

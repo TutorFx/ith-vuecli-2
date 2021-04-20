@@ -5,7 +5,7 @@
     <v-container class="container-Curso">
       <v-row align="end">
         <v-col cols="" xs="12" md="7" class="mb-5">
-          <div v-if="$store.state.api.cursoLoaded" class="Titulo mb-3">{{curso.acf.categoria == 2 ? 'Pós Graducação' : curso.acf.categoria == 1 ? 'Extensão' : ''}}</div>
+          <div v-if="$store.state.api.cursoLoaded" class="Titulo mb-3">{{curso.acf.categoria == 1 ? 'Pós Graducação' :  curso.acf.categoria == 2 || curso.acf.categoria == 3 ? 'Extensão' : curso.acf.categoria == 4 ? 'Internacional' : curso.acf.categoria == 5 ? 'Técnico' : curso.acf.categoria == 6 ? 'Graduação' : 'Error 404'}}</div>
 
           <div v-if="$store.state.api.cursoLoaded" class="SubTitulo mb-1">
             {{ curso.titulo }}
@@ -26,7 +26,7 @@
               </div>
             </v-col>
 
-            <v-col cols="" xs="12" sm="12" md="6">
+            <v-col v-if="curso.acf.modalidade == 3" cols="" xs="12" sm="12" md="6">
               <div class="Inf">
                 <v-icon color="#fca311" class="mr-3">fa-wifi</v-icon>
                 100% on-line
@@ -40,10 +40,10 @@
               </div>
             </v-col>
 
-            <v-col cols="" xs="12" sm="12" md="6">
+            <v-col v-if="curso.acf.carga_horaria_m" cols="" xs="12" sm="12" md="6">
               <div class="Inf">
                 <v-icon color="#fca311" class="mr-3">fa-hourglass-half</v-icon>
-                15 meses
+                {{curso.acf.carga_horaria_m}} Meses
               </div>
             </v-col>
           </v-row>
@@ -72,7 +72,7 @@
               <div class="intersection">
                 <div class="intersection-stroke"></div>
                 <div class="intersection-botao">
-                  <v-btn depressed dark color="#222C35" @click="curso.acf.id != undefined ? storage.carrinho.push(JSON.stringify({img: curso.thumbnail.large, id: curso.acf.id, url: rota})) :''">
+                  <v-btn depressed :disabled="!curso.acf.id" dark color="#222C35" @click="curso.acf.id != undefined ? storage.carrinho.push(JSON.stringify({img: curso.thumbnail.large, id: curso.acf.id, url: rota})) :''">
                     Me Matricular
                   </v-btn>
                 </div>

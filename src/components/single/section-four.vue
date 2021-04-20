@@ -3,19 +3,19 @@
   <div class="sectionCombos" :style="`background-image: url(${require('@/assets/bg/logowhite-bg.svg')})`">
     <v-container class="container-Combos my-10">
       <v-row>
-        <v-col cols="" xs="12" md="4" lg="4">
-          <div class="Digital">
-            <h1 class="mt-1">Digital</h1>
-            <div class="topic">
+        <v-col v-if="$store.state.api.cursoLoaded && curso.acf.preco" cols="" xs="12" md="4" lg="4">
+          <div class="modalidade">
+            <h1 v-if="$store.state.api.cursoLoaded" class="mt-1">{{ curso.acf.modalidade == 1 ? 'Híbrido' : curso.acf.modalidade == 2 ? 'Presencial' : curso.acf.modalidade == 3 ? 'Digital' : 'Error 404 - Modalidade não encontrada' }}</h1>
+            <div v-if="$store.state.api.cursoLoaded" class="topic">
                 <ul>
-                    <li class="mb-0">16x de <strong> R$ 270,09*</strong></li>
+                    <li class="mb-0">{{curso.acf.carga_horaria_m.split(" ")[0]}}x de <strong> R$ {{ curso.acf.preco_promo == false ? curso.acf.preco : curso.acf.preco_promo }}*</strong></li>
                 </ul>
             </div>
             <span> (*cartão de crédito recorrente) </span>
 
             <div class="topic">
                 <ul>
-                    <li class="my-0">01x de <strong> R$ 3.024,99*</strong></li>
+                    <li class="my-0">{{ curso.acf.carga_horaria_m.split(" ")[1] == 'meses' ? '1':'' }}x de <strong> R$ {{ parseInt(curso.acf.carga_horaria_m) * (curso.acf.preco_promo == false ? curso.acf.preco : curso.acf.preco_promo) }}*</strong></li>
                 </ul>
             </div>
 
@@ -78,7 +78,7 @@
     color: #222c35;
     text-align: center;
 
-    .Digital {
+    .modalidade {
       font-family: "Gilmer";
       font-weight: normal;
       text-align: center;
@@ -210,6 +210,9 @@ export default {
             this.espectadores = Math.floor(Math.random() * (90 - 40) + 40);
             return this.espectadores;
         },
+    },
+    props: {
+      curso: Object
     }
 };
 </script>

@@ -2,7 +2,7 @@
     <div>
         <section-one />
         <section-two :curso="curso" />
-        <section-four />
+        <section-four :curso="curso" />
         <section-three />
         <section-five :curso="curso" />
         <section-six />

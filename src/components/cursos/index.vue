@@ -1,7 +1,7 @@
 <template>
     <div class="exibicao">
         <v-container>
-            <underscore class="mb-10" linecolor="#FCA311"><h2>FILTRE DO SEU JEITO</h2></underscore>
+            <underscore class="mb-10" linecolor="#FCA311">FILTRE DO SEU JEITO</underscore>
             <filtro />
             <div>
                 <query type="list" />

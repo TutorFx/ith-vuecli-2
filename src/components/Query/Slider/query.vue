@@ -218,6 +218,7 @@ $paddingslider: 5px;
                     padding: 5px 18px 5px 18px;
                     transform: translateX(-5px);
                     user-select: none;
+                    font-size: 15px;
                 }
             }
             .card-titulo{

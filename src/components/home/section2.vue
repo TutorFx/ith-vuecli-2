@@ -1,17 +1,17 @@
 <template>
   <div class="qualities-background" :style="`background-image: url(${require('@/assets/Sections/HomeTwo/sectwo.svg')});`">
     <v-container>
-      <v-row class="wraper-qualities py-15">
-        <v-col cols="12" sm="6" md="3">
-          <div v-ripple class="quality-item py-5">
+      <v-row class="wraper-qualities py-15" align="center" justify="center">
+        <v-col cols="12" sm="6" md="">
+          <div v-ripple class="quality-item ">
             <div>
               Mais de <b>5 mil</b> <br>
               alunos formados!
             </div>
           </div>
         </v-col>
-        <v-col cols="12" sm="6" md="3">
-          <div v-ripple :class="$vuetify.breakpoint.sm ? 'dark':'dark'" class="quality-item py-5">
+        <v-col cols="12" sm="6" md="">
+          <div v-ripple :class="$vuetify.breakpoint.sm ? 'dark':'dark'" class="quality-item ">
             <div>
               98,5% de <b>satisfação</b> <br>
               do aluno
@@ -25,16 +25,23 @@
             </div>
           </div>
         </v-col>
-        <v-col cols="12" sm="6" md="3">
-          <div v-ripple :class="$vuetify.breakpoint.sm ? 'dark':''" class="quality-item py-5">
+        <v-col cols="12" sm="6" md="">
+          <div v-ripple :class="$vuetify.breakpoint.sm ? 'dark':''" class="quality-item ">
+            <div>
+              Presente em mais de <b>05 paises</b>
+            </div>
+          </div>
+        </v-col>
+        <v-col cols="12" sm="6" md="">
+          <div v-ripple :class="$vuetify.breakpoint.sm ? '':'dark'" class="quality-item ">
             <div>
               <b>Modelo ITH 4.0</b> <br>
               Exclusivo
             </div>
           </div>
         </v-col>
-        <v-col cols="12" sm="6" md="3">
-          <div v-ripple :class="$vuetify.breakpoint.sm ? '':'dark'" class="quality-item py-5">
+        <v-col cols="12" sm="6" md="">
+          <div v-ripple :class="$vuetify.breakpoint.sm ? 'dark':''" class="quality-item ">
             <div>
               77% dos alunos <br><b>atuando na área</b>
               após <br> sua formação
@@ -76,7 +83,7 @@ export default {
         text-align: center;
         font-family: 'Gilmer';
         font-weight: 500;
-        font-size: 22px;
+        font-size: 14px;
         div{
           img{
             height: 15px;
@@ -95,7 +102,7 @@ export default {
   .qualities-background{
     .wraper-qualities{
       .quality-item{
-        min-height: 140px;
+        min-height: 110px;
       }
     }
   }
@@ -104,7 +111,7 @@ export default {
   .qualities-background{
     .wraper-qualities{
       .quality-item{
-        min-height: 210px;
+        min-height: 110px;
       }
     }
   }

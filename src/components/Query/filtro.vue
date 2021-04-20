@@ -1,6 +1,6 @@
 <template>
     <v-row>
-        <v-col>
+        <v-col cols="12" xs="12" sm="12" md="6" lg="3" xl="3" >
             <v-combobox
                 :items="selectCursos"
                 v-model="cursos"
@@ -15,7 +15,7 @@
             ></v-combobox>
             <!-- {{cursos}} -->
         </v-col>
-        <v-col>
+        <v-col cols="12" xs="12" sm="12" md="6" lg="3" xl="3" >
             <v-combobox
                 :items="selectModalidade"
                 item-value="id"
@@ -30,7 +30,7 @@
             ></v-combobox>
             <!-- {{modalidade}} -->
         </v-col>
-        <v-col>
+        <v-col cols="12" xs="12" sm="12" md="6" lg="3" xl="3" >
             <v-combobox
                 :items="selectArea"
                 v-model="area"
@@ -42,7 +42,7 @@
             ></v-combobox>
                 <!-- {{area}} -->
         </v-col>
-        <v-col>
+        <v-col cols="12" xs="12" sm="12" md="6" lg="3" xl="3" >
             <v-combobox
                 label="Busca"
                 outlined
