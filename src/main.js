@@ -8,9 +8,9 @@ import ReactiveStorage from "vue-reactive-localstorage";
 import VueResizeText from 'vue-resize-text';
  
 Vue.use(VueResizeText)
-
-// Set initial values
+Vue.use(require('vue-script2'))
 Vue.use(ReactiveStorage, {
+  // Set initial values
     "carrinho": [],
 });
 

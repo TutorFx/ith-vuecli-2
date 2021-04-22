@@ -35,11 +35,11 @@ const routes = [
   //   name: 'Institucional',
   //   component: () => import('../views/Institucional.vue')
   // },
-  // {
-  //   path: '/quemsomos',
-  //   name: 'Quem Somos',
-  //   component: () => import('../views/quem-somos.vue')
-  // },
+  {
+    path: '/institucional/:layout',
+    name: 'Institucional',
+    component: () => import('../views/Institucional.vue')
+  },
   // {
   //   path: '/sobreith',
   //   name: 'Sobre ITH',
@@ -80,11 +80,16 @@ const routes = [
   //   name: 'Cursos de extensão',
   //   component: () => import('../views/cursos-de-extensao.vue')
   // },
-  // {
-  //   path: '/academico',
-  //   name: 'Academico',
-  //   component: () => import('../views/academico.vue')
-  // },
+  {
+    path: '/academico/:layout',
+    name: 'Academico Selected',
+    component: () => import('../views/academico.vue')
+  },
+  {
+    path: '/academico/*',
+    name: 'Academico',
+    component: () => import('../views/academico.vue')
+  },
   // {
   //   path: '/secretaria',
   //   name: 'Secretaria',

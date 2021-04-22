@@ -11,5 +11,6 @@ import navbarOne from "@/components/navigation/Navbar.vue";
 import footerOne from "@/components/navigation/Footer.vue";
 export default {
       components: { navbarOne, footerOne },
+
 }
 </script>
