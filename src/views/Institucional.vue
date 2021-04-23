@@ -17,7 +17,7 @@
             <h3>Essa página está em construção</h3>
           </div>
       </div>
-      <quem-somos v-if="$route.params.layout == 'quem-somos' "></quem-somos>
+      <quem-somos v-if="$route.params.layout == 'quem-somos'"></quem-somos>
 
   </layout>
 </template>
