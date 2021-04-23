@@ -12,10 +12,12 @@
                 </v-tabs>
             </v-container>
       </div>
-      <div v-if="$route.params.layout == 'secretaria'">
-          teste
+      <div v-if="$route.params.layout == ['estatuto-regimento', 'planejamento-estrategico', 'trabalhe-conosco']">
+          <div class="construction">
+            <h3>Essa página está em construção</h3>
+          </div>
       </div>
-      <quem-somos v-if="$route.params.layout == 'quem-somos'"></quem-somos>
+      <quem-somos v-if="$route.params.layout == 'quem-somos' "></quem-somos>
 
   </layout>
 </template>
@@ -31,6 +33,15 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="scss">
+
+  .construction{
+    background-color: #f4f4f4;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
 
 </style>
