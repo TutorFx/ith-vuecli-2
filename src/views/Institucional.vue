@@ -5,14 +5,14 @@
       <div class="primary">
             <v-container>
                 <v-tabs :show-arrows="true" background-color="primary" class="pl-0" dark>
-                    <v-tab @click="$router.push({ path: 'quem-somos'})">Quem Somos</v-tab>
-                    <v-tab @click="$router.push({ path: 'estatuto-regimento'})">Estatuto/Regimento</v-tab>
-                    <v-tab @click="$router.push({ path: 'planejamento-estrategico', /*query: { layout: 'calendario' }*/})">Planejamento Estrategico</v-tab>
-                    <v-tab @click="$router.push({ path: 'trabalhe-conosco'})">Trabalhe Conosco</v-tab>
+                    <v-tab to="quem-somos" >Quem Somos</v-tab>
+                    <v-tab to="estatuto-regimento">Estatuto/Regimento</v-tab>
+                    <v-tab to="planejamento-estrategico" >Planejamento Estrategico</v-tab>
+                    <v-tab to="trabalhe-conosco" >Trabalhe Conosco</v-tab>
                 </v-tabs>
             </v-container>
       </div>
-      <div v-if="$route.params.layout == ['estatuto-regimento', 'planejamento-estrategico', 'trabalhe-conosco']">
+      <div v-if="['estatuto-regimento', 'planejamento-estrategico', 'trabalhe-conosco'].includes($route.params.layout)">
           <div class="construction">
             <h3>Essa página está em construção</h3>
           </div>

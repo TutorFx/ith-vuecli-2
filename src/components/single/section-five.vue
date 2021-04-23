@@ -78,7 +78,7 @@
             <v-btn depressed dark color="#222c35" class="mr-5 mb-2">
               Baixar PDF do Curso
             </v-btn>
-            <v-btn depressed dark color="#222c35" class="mr-5 mb-2">
+            <v-btn v-if="false" depressed dark color="#222c35" class="mr-5 mb-2">
               Portaria MEC
             </v-btn>
           </div>

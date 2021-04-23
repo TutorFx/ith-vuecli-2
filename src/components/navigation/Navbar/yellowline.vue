@@ -6,7 +6,26 @@
                <v-btn to="/" small text>HOME</v-btn>
                <v-btn to="/institucional" small text>INSTITUCIONAL</v-btn>
                <v-btn to="/blog" small text>BLOG</v-btn>
-               <v-btn to="/acesso" small text>ACESSO</v-btn>
+               <v-menu offset-y>
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-btn
+                        small
+                        text
+                        v-bind="attrs"
+                        v-on="on"
+                        >
+                        ACESSO
+                        </v-btn>
+                    </template>
+                    <v-list>
+                        <v-list-item href="https://aluno.eduqtecnologia.com.br/#/login">
+                            <v-list-item-title>Aluno</v-list-item-title>
+                        </v-list-item>
+                        <v-list-item href="https://sistema.eduqtecnologia.com.br/#/nav/n5/home">
+                            <v-list-item-title>Professor</v-list-item-title>
+                        </v-list-item>
+                    </v-list>
+                </v-menu>
                <v-btn to="/ouvidoria" small text>OUVIDORIA</v-btn>
            </v-col>
            <v-col align="center">

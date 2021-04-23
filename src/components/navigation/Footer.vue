@@ -18,8 +18,16 @@
           <!-- container da  Logo -->
           <v-col cols="12" xs="12" sm="12" md="5">
             
-            <!-- <v-img src="@/assets/"></v-img> -->
+            <v-img max-width="200px" class="mb-5" src="@/assets/Branding/logo-footer.svg"></v-img>
 
+            <v-col>
+                <v-btn class="mr-2" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">fab fa-whatsapp</v-icon></v-btn>
+                <v-btn class="mr-2" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">fab fa-instagram</v-icon></v-btn>
+                <v-btn class="mr-2" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">fab fa-facebook</v-icon></v-btn>
+                <v-btn class="mr-2" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">fab fa-linkedin</v-icon></v-btn>
+                <v-btn class="mr-2" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">fab fa-youtube</v-icon></v-btn>
+                <v-btn class="mr-2" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">mdi-email</v-icon></v-btn>
+            </v-col>
 
             <div class="logo-endereco">
               Rua 203, Nº344 - St. Leste Universitário <br>

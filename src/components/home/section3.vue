@@ -3,7 +3,7 @@
     <v-container class="pt-0">
       <v-row>
         <v-col cols="12" md="7" lg="6" xs="12">
-          <router-link to="/matricular">
+          <router-link to="/cursos">
             <v-img class="s3contenta" :src="$vuetify.breakpoint.mobile ? require('@/assets/Sections/Content/s3contentimg-mobile.svg') : require('@/assets/Sections/Content/s3contentimg.svg')"></v-img>
           </router-link>
         </v-col>

@@ -30,15 +30,15 @@ const routes = [
   //   name: 'Trabalhe Conosco',
   //   component: () => import('../views/trabalhe-conosco.vue')
   // },
-  // {
-  //   path: '/institucional',
-  //   name: 'Institucional',
-  //   component: () => import('../views/Institucional.vue')
-  // },
   {
     path: '/institucional/:layout',
-    name: 'Institucional',
+    name: 'Institucional Select',
     component: () => import('../views/Institucional.vue')
+  },
+  {
+    path: '/institucional',
+    name: 'Institucional',
+    redirect: { path: '/institucional/quem-somos' }
   },
   // {
   //   path: '/sobreith',
@@ -150,11 +150,11 @@ const routes = [
   //   name: 'Contato',
   //   component: () => import('../views/contato.vue')
   // },
-  // {
-  //   path: '/blog',
-  //   name: 'Blog',
-  //   component: () => import('../views/blog.vue')
-  // },
+  {
+    path: '/blog',
+    name: 'Blog',
+    component: () => import('../views/blog.vue')
+  },
   // {
   //   path: '/transformith',
   //   name: 'Transformith',

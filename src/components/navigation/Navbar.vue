@@ -115,12 +115,43 @@
                                 <v-list-item-title>Blog</v-list-item-title>
                             </v-list-item>
 
-                            <v-list-item>
-                                <v-list-item-icon>
-                                    <v-icon> mdi-login </v-icon>
-                                </v-list-item-icon>
-                                <v-list-item-title>Acesso</v-list-item-title>
-                            </v-list-item>
+                            <v-divider></v-divider>
+
+                            <v-list-group
+                            :value="false"
+                            no-action
+                            sub-group
+                            color="white"
+                            >
+                                <template v-slot:activator>
+                                    <v-list-item-content>
+                                        <v-list-item-title dense dark>Acesso</v-list-item-title>
+                                    </v-list-item-content>
+                                </template>
+
+                                <v-list-item
+                                    dense
+                                    href="https://aluno.eduqtecnologia.com.br/#/login"
+                                >
+                                    <v-list-item-icon>
+                                        <v-icon v-text="'mdi-login'"></v-icon>
+                                    </v-list-item-icon>
+                                    <v-list-item-title v-text="'Aluno'"></v-list-item-title>
+                                </v-list-item>
+
+                                <v-list-item
+                                    dense
+                                    href="https://sistema.eduqtecnologia.com.br/#/nav/n5/home"
+                                >
+                                    <v-list-item-icon>
+                                        <v-icon v-text="'mdi-login'"></v-icon>
+                                    </v-list-item-icon>
+                                    <v-list-item-title v-text="'Professor'"></v-list-item-title>
+                                </v-list-item>
+
+                            </v-list-group>
+
+                            <v-divider></v-divider>
 
                             <v-list-item>
                                 <v-list-item-icon>
@@ -128,8 +159,6 @@
                                 </v-list-item-icon>
                                 <v-list-item-title>Ouvidoria</v-list-item-title>
                             </v-list-item>
-
-                            <v-divider></v-divider>
 
                             <v-list-item>
                                 <v-list-item-icon>
@@ -166,10 +195,9 @@
                                 <v-list-item-title>Transformith</v-list-item-title>
                             </v-list-item>
 
-                            <v-divider></v-divider>
-
                             </v-list-item-group>
                         </v-list>
+
                     </v-navigation-drawer>
                 </v-sheet>
             </div>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-intersect="onIntersect">
         <v-slide-group
         center-active
         v-if="type == 'slide'"
@@ -42,7 +42,7 @@
                                     </v-btn>
                                 </v-overlay>
                                 <div class="card-bg">
-                                    <v-img cover height="250px" :src="curso.thumbnail.large"></v-img>
+                                    <v-parallax cover height="250" style="min-width: 260px" :src="curso.thumbnail.large"></v-parallax>
                                     <div class="card-gradient"  />
                                 </div>
                                 <div class="spacer" />
@@ -76,7 +76,7 @@
                         <div class="card-slide">
                             <div class="slider-item" color="warning" light v-ripple="{ class: `warning--text` }">
                                 <div class="card-bg">
-                                    <v-img cover height="250px" width="260px" :src="curso.thumbnail.large"></v-img>
+                                    <v-parallax cover height="250" style="min-width: 260px" :src="curso.thumbnail.large"></v-parallax>
                                     <div class="card-gradient"  />
                                 </div>
                                 <div class="spacer" />
@@ -104,6 +104,16 @@ export default {
         },
         '$store.state.search.modalidade': function() {
             //console.log(this.$store.state.search.modalidade);
+        },
+        'isIntersecting': function() {
+            if (this.isIntersecting == true){
+                if (this.$store.state.api.cursosError == false){
+                    this.$store.commit("getApi");
+                }
+                if (this.$store.state.api.eduqError == false){
+                    this.$store.commit("getEduq");
+                }
+            }
         }
     },
     computed:{
@@ -170,9 +180,19 @@ export default {
             required: true
         }
     },
+    data: () => ({
+        isIntersecting: false,
+    }),
     mounted(){
         console.log(this.$vuetify.breakpoint.width)
     },
+    methods: {
+      onIntersect (entries, observer) {
+        // More information about these options
+        // is located here: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+        this.isIntersecting = entries[0].isIntersecting
+      },
+      }
 }
 </script>
 
