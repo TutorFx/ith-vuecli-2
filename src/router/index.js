@@ -155,6 +155,11 @@ const routes = [
     name: 'Blog',
     component: () => import('../views/blog.vue')
   },
+  {
+    path: '/blog/:slug',
+    name: 'Postagem',
+    component: () => import('../views/blog-single.vue')
+  },
   // {
   //   path: '/transformith',
   //   name: 'Transformith',

@@ -71,7 +71,9 @@ $title-font: 'Gilmer';
        font-family: $title-font, sans-serif !important;
     }
  }
-
+li a {
+    text-decoration: none!important;
+}
 </style>
 
 <script>

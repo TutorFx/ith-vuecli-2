@@ -3,37 +3,39 @@
         <slider />
         <div class="featured">
             <v-container v-for="(post, i) in filtro().slice(0, 1)" :key="i">
-                <v-row class="py-10">
-                    <v-col cols="12" md="6">
-                        <v-parallax height="300" :src="post.thumbnail.large"></v-parallax>
-                    </v-col>
-                    <v-col cols="12" md="6" class="py-8">
-                        <div v-if="true">
-                            <div class="mb-15">
-                                <h2 class="white--text">{{ post.titulo }}</h2>
-                                <h3 class="white--text">{{post.desc.length > 80 ? post.desc.slice(0, 80) + '...' : post.desc}}</h3>
-                            </div>
-                            <v-row class="mb-5 px-3 white--text">
-                                <h4 class="mr-3">{{ post.date }}</h4>
-                                <v-btn x-small depressed color="#FCA311" class="black--text mr-3">#saúde</v-btn>
-                                <v-btn x-small depressed color="#FCA311" class="black--text mr-3">#pós-graduação</v-btn>
-                            </v-row>
-                            <v-row class="px-3" align="center">
-                                <v-avatar
-                                color="black"
-                                size="56"
-                                class="white--text mr-3"
-                                >
-                                    <h3>{{getInitials(post.autor)}}</h3>
-                                </v-avatar>
-                                <div>
-                                    <h4>{{ post.autor }}</h4>
-                                    <h6>Social Media</h6>
+                <router-link :to="'/blog/'+post.slug">
+                    <v-row class="py-10">
+                        <v-col cols="12" md="6">
+                            <v-parallax height="300" :src="post.thumbnail.large"></v-parallax>
+                        </v-col>
+                        <v-col cols="12" md="6" class="py-8">
+                            <div v-if="true">
+                                <div class="mb-15">
+                                    <h2 class="white--text">{{ post.titulo }}</h2>
+                                    <h3 class="white--text">{{post.desc.length > 80 ? post.desc.slice(0, 80) + '...' : post.desc}}</h3>
                                 </div>
-                            </v-row>
-                        </div>
-                    </v-col>
-                </v-row>
+                                <v-row class="mb-5 px-3 white--text">
+                                    <h4 class="mr-3">{{ post.date }}</h4>
+                                    <v-btn x-small depressed color="#FCA311" class="black--text mr-3">#saúde</v-btn>
+                                    <v-btn x-small depressed color="#FCA311" class="black--text mr-3">#pós-graduação</v-btn>
+                                </v-row>
+                                <v-row class="px-3" align="center">
+                                    <v-avatar
+                                    color="black"
+                                    size="56"
+                                    class="white--text mr-3"
+                                    >
+                                        <h3>{{getInitials(post.autor)}}</h3>
+                                    </v-avatar>
+                                    <div>
+                                        <h4>{{ post.autor }}</h4>
+                                        <h6>Social Media</h6>
+                                    </div>
+                                </v-row>
+                            </div>
+                        </v-col>
+                    </v-row>
+                </router-link>
             </v-container>
         </div>
         <div>
@@ -50,6 +52,7 @@
                         <underscore linecolor="#FCA311" class="mb-10">Últimas Publicações</underscore>
                         <v-row v-if="$store.state.api.postsError == false">
                             <v-col cols="12" md="4" v-for="(post, i) in filtro().slice(1)" :key="i">
+                                <router-link :to="'/blog/'+post.slug">
                                 <v-parallax height="220" class="mb-5" :src="post.thumbnail.large"></v-parallax>
                                 <h3 class="mb-3">{{post.titulo}}</h3>
                                 <h4 class="mb-5">{{post.desc.length > 80 ? post.desc.slice(0, 80) + '...' : post.desc}}</h4>
@@ -71,6 +74,7 @@
                                         <h6>Social Media</h6>
                                     </div>
                                 </v-row>
+                                </router-link>
                             </v-col>
                         </v-row>
                     </v-col>
