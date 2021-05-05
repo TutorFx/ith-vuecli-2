@@ -1,28 +1,30 @@
 <!-- CONFIG. HTML -->
 <template>
-  <div class="sectionCombos" :style="`background-image: url(${require('@/assets/bg/logowhite-bg.svg')})`">
-    <v-container class="container-Combos my-10">
+  <div class="sectionCombos" :style="`background-image: url(${require('@/assets/bg/logowhite-bg.svg')}); background-color: #222c35;`">
+    <v-container class="container-Combos my-10 white--text">
       <v-row>
         <v-col v-if="$store.state.api.cursoLoaded && curso.acf.preco" cols="" xs="12" md="4" lg="4">
           <div class="modalidade">
-            <h1 v-if="$store.state.api.cursoLoaded" class="mt-1">{{ curso.acf.modalidade == 1 ? 'Híbrido' : curso.acf.modalidade == 2 ? 'Presencial' : curso.acf.modalidade == 3 ? 'Digital' : 'Error 404 - Modalidade não encontrada' }}</h1>
+            
+            <div class="d-flex justify-center py-3">
+              <v-icon class="mr-2" color="#FCA311">far fa-square</v-icon>
+              <h1 v-if="$store.state.api.cursoLoaded">{{ curso.acf.modalidade == 1 ? 'Híbrido' : curso.acf.modalidade == 2 ? 'Presencial' : curso.acf.modalidade == 3 ? 'Digital' : 'Error 404 - Modalidade não encontrada' }}</h1>
+            </div>
+            
             <div v-if="$store.state.api.cursoLoaded" class="topic">
                 <ul>
-                    <li class="mb-0">{{curso.acf.carga_horaria_m.split(" ")[0]}}x de <strong> R$ {{ curso.acf.preco_promo == false ? curso.acf.preco : curso.acf.preco_promo }}*</strong></li>
+                    <li>{{curso.acf.mensalidades ?  curso.acf.mensalidades : '1'}}x de <strong> R$ {{ (curso.acf.preco_promo == false ? curso.acf.preco : curso.acf.preco_promo).replace('.',',') }}</strong></li>
                 </ul>
             </div>
-            <span> (*cartão de crédito recorrente) </span>
 
-            <div class="topic">
+            <span> (cartão de crédito recorrente) </span>
+
+            <div v-if="curso.acf.mensalidades" class="topic">
                 <ul>
-                    <li class="my-0">{{ curso.acf.carga_horaria_m.split(" ")[1] == 'meses' ? '1':'' }}x de <strong> R$ {{ parseInt(curso.acf.carga_horaria_m) * (curso.acf.preco_promo == false ? curso.acf.preco : curso.acf.preco_promo) }}*</strong></li>
+                    <li>1x de <strong> R$ {{ (curso.acf.mensalidades * (curso.acf.preco_promo == false ? curso.acf.preco : curso.acf.preco_promo)).toFixed(2).replace('.',',') }}</strong></li>
                 </ul>
             </div>
-
-            <span> (*á vista) </span> <br>
-
-            <span class="mb-10"> ** 10% desconto na pontualidade no boleto ou cartão </span>
-            <br>
+            
           </div>
         </v-col>
 
@@ -35,25 +37,15 @@
               <strong> Não perca tempo! </strong>
             </div>
 
-            <v-btn depressed small dark color="#FCA311"> Quero! </v-btn>
+            <v-btn to="/cursos" class="rounded-0" depressed small dark color="#FCA311"> Quero! </v-btn>
           </div>
         </v-col>
 
         <v-col cols="" xs="12" md="4" lg="4">
-          <div class="Compartilhe">
+          <div class="Compartilhe" style="border: 2px solid white;">
+            <div class="mb-3 d-flex"><v-icon small color="white" class="mr-2">fa fa-eye</v-icon><espectadores /></div>
+            <share />
             <h1>Compartilhe</h1>
-            
-            <div class="icones">
-                <v-btn class="mr-2" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fff">fab fa-whatsapp</v-icon></v-btn>
-                <v-btn class="mr-2" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fff">fab fa-facebook</v-icon></v-btn>
-                <v-btn class="mr-2" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fff">fab fa-instagram</v-icon></v-btn>
-                <v-btn class="mr-2" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fff">mdi-email</v-icon></v-btn>
-                <v-btn class="mr-2" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fff">fab fa-linkedin</v-icon></v-btn>
-            </div>
-
-            <div class="Desc">
-              <strong> {{this.espectadores}} estão vendo essa página </strong>
-            </div>
           </div>
         </v-col>
       </v-row>
@@ -75,13 +67,15 @@
   background-size: 100vh;
 
   .container-Combos {
-    color: #222c35;
     text-align: center;
 
     .modalidade {
       font-family: "Gilmer";
       font-weight: normal;
       text-align: center;
+      min-height: 100%;
+      justify-content: center;
+      align-items: center;
       border: 2px solid #fca311;
         .topic{
             display: flex;
@@ -192,27 +186,12 @@
 
 <!-- CONFIG. JAVA SCRIPT -->
 <script>
+import share from "@/components/single/share.vue"
+import espectadores from "@/components/single/espectadores.vue"
 export default {
-    data(){
-        return{
-            espectadores: Math.floor(Math.random() * (90 - 40) + 40),
-        }
-    },
-    mounted() {
-        this.$nextTick(function () {
-            window.setInterval(() => {
-                this.segundo();
-            }, 1000)
-        })
-    },
-    methods: {
-        segundo() {
-            this.espectadores = Math.floor(Math.random() * (90 - 40) + 40);
-            return this.espectadores;
-        },
-    },
     props: {
       curso: Object
-    }
+    },
+    components:{ share, espectadores },
 };
 </script>

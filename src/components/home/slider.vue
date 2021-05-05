@@ -15,7 +15,7 @@
                             </div>
                             <div class="botoes mb-10">
 
-                                <v-btn depressed to="/cursos" class="mr-2 mb-2 ml-15 black--text" color="#F4F4F4">Saiba Mais</v-btn>
+                                <v-btn depressed to="/institucional/quem-somos" class="mr-2 mb-2 ml-15 black--text" color="#F4F4F4">Saiba Mais</v-btn>
                                 <v-btn depressed to="/cursos" class="mb-2" color="#FCA311">Me Matricular</v-btn>
 
                             </div>

@@ -5,7 +5,7 @@
       <div class="Titulo">
         <div class="container-titulo" :style="`background-image: url(${require('@/assets/Sections/icon/parceiroslogowhite.svg')})`">
             <div>
-                <underscore linecolor="white">PARCEIROS E BENEFÍCIO</underscore>
+                <underscore linecolor="white">PARCEIROS E BENEFÍCIOS</underscore>
             </div>
         </div>
       </div>

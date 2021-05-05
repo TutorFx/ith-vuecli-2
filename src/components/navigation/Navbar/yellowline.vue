@@ -18,7 +18,7 @@
                         </v-btn>
                     </template>
                     <v-list>
-                        <v-list-item href="https://aluno.eduqtecnologia.com.br/#/login">
+                        <v-list-item href="https://aluno.ithpos.com.br/#/login">
                             <v-list-item-title>Aluno</v-list-item-title>
                         </v-list-item>
                         <v-list-item href="https://sistema.eduqtecnologia.com.br/#/nav/n5/home">
@@ -29,12 +29,12 @@
                <v-btn to="/ouvidoria" small text>OUVIDORIA</v-btn>
            </v-col>
            <v-col align="center">
-               <v-btn class="mr-2" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fca311">fab fa-whatsapp</v-icon></v-btn>
-               <v-btn class="mr-2" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fca311">fab fa-instagram</v-icon></v-btn>
-               <v-btn class="mr-2" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fca311">fab fa-facebook</v-icon></v-btn>
-               <v-btn class="mr-2" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fca311">fab fa-linkedin</v-icon></v-btn>
-               <v-btn class="mr-2" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fca311">fab fa-youtube</v-icon></v-btn>
-               <v-btn class="mr-2" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fca311">mdi-email</v-icon></v-btn>
+               <v-btn class="mr-2" onclick="window.open('https://api.whatsapp.com/send?phone=556230917079', '_blank')" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fca311">fab fa-whatsapp</v-icon></v-btn>
+               <v-btn class="mr-2" onclick="window.open('https://instagram.com/itheducacional?igshid=7xbxrxu1t16a', '_blank')" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fca311">fab fa-instagram</v-icon></v-btn>
+               <v-btn class="mr-2" onclick="window.open('https://www.facebook.com/ithposgraduacao/', '_blank')" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fca311">fab fa-facebook</v-icon></v-btn>
+               <v-btn class="mr-2" onclick="window.open('https://www.linkedin.com/company/ithpos', '_blank')" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fca311">fab fa-linkedin</v-icon></v-btn>
+               <v-btn class="mr-2" onclick="window.open('https://www.youtube.com/channel/UCrVECUVMXbh9FYdkVK_PbwA', '_blank')" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fca311">fab fa-youtube</v-icon></v-btn>
+               <v-btn class="mr-2" onclick="window.open('mailto:ithpos@ithpos.com.br', '_blank')" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fca311">mdi-email</v-icon></v-btn>
 
            </v-col>
        </v-row>

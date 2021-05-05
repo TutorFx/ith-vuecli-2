@@ -21,12 +21,12 @@
             <v-img max-width="200px" class="mb-5" src="@/assets/Branding/logo-footer.svg"></v-img>
 
             <v-col>
-                <v-btn class="mr-2" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">fab fa-whatsapp</v-icon></v-btn>
-                <v-btn class="mr-2" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">fab fa-instagram</v-icon></v-btn>
-                <v-btn class="mr-2" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">fab fa-facebook</v-icon></v-btn>
-                <v-btn class="mr-2" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">fab fa-linkedin</v-icon></v-btn>
-                <v-btn class="mr-2" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">fab fa-youtube</v-icon></v-btn>
-                <v-btn class="mr-2" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">mdi-email</v-icon></v-btn>
+                <v-btn class="mr-2" onclick="window.open('https://api.whatsapp.com/send?phone=556230917079', '_blank')" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">fab fa-whatsapp</v-icon></v-btn>
+                <v-btn class="mr-2" onclick="window.open('https://instagram.com/itheducacional?igshid=7xbxrxu1t16a', '_blank')" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">fab fa-instagram</v-icon></v-btn>
+                <v-btn class="mr-2" onclick="window.open('https://www.facebook.com/ithposgraduacao/', '_blank')" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">fab fa-facebook</v-icon></v-btn>
+                <v-btn class="mr-2" onclick="window.open('https://www.linkedin.com/company/ithpos', '_blank')" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">fab fa-linkedin</v-icon></v-btn>
+                <v-btn class="mr-2" onclick="window.open('https://www.youtube.com/channel/UCrVECUVMXbh9FYdkVK_PbwA', '_blank')" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">fab fa-youtube</v-icon></v-btn>
+                <v-btn class="mr-2" onclick="window.open('mailto:ithpos@ithpos.com.br', '_blank')" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">mdi-email</v-icon></v-btn>
             </v-col>
 
             <div class="logo-endereco">

@@ -2,24 +2,30 @@
     <div>
         <section-one />
         <section-two :curso="curso" />
-        <section-four :curso="curso" />
+        <caixas-video :curso="curso" />
         <section-three />
-        <section-five :curso="curso" />
-        <section-six />
+        <lista :curso="curso" />
+        <como-funciona :curso="curso" />
+        <perguntas-e-faq :curso="curso" />
+        <caixas :curso="curso" />
+        <query type="slide" class="py-16" />
     </div>
 </template>
 
 <script>
 import sectionOne from "@/components/single/section-one.vue"
 import sectionTwo from "@/components/single/section-two.vue"
-import sectionThree from "@/components/single/section-three.vue"
-import sectionFour from "@/components/single/section-four.vue"
-import sectionFive from "@/components/single/section-five.vue"
-import sectionSix from "@/components/single/section-six.vue"
+import sectionThree from "@/components/single/transforme-sua-vida"
+import caixas from "@/components/single/caixas.vue"
+import caixasVideo from "@/components/single/caixasevideo.vue"
+import lista from "@/components/single/lista.vue"
+import perguntasEFaq from "@/components/single/perguntas-e-faq.vue"
+import comoFunciona from "@/components/single/como-funciona.vue"
+import query from "@/components/Query/Slider/query.vue"
 
 export default {
     props: { curso: Object },
-    components: { sectionOne, sectionTwo, sectionThree, sectionFour, sectionFive, sectionSix
+    components: { sectionOne, sectionTwo, sectionThree, caixas, lista, caixasVideo, perguntasEFaq, comoFunciona, query
     },
     
     mounted() {

@@ -3,31 +3,30 @@
   <div class="sectionFive">
     <v-container class="container-SectionFive my-5">
       <v-row>
-        <v-col cols="" xs="12" sm="12" md="6" lg="6" class="px-3 pr-8 py-0">
-            <div v-if="$store.state.api.cursoLoaded">
-                <div v-if="curso.acf.mercado">
-                    <underscore linecolor="#FCA311">
-                        <h6>COMO ESTÁ O MERCADO NA ÁREA</h6>
-                    </underscore>
+        <v-col cols="" xs="12" sm="12" md="6" lg="6" class="px-3 pr-8 mb-5">
+          <div v-if="$store.state.api.cursoLoaded && curso.acf.mercado">
+              <div>
+                  <underscore linecolor="#FCA311">
+                      <h6>COMO ESTÁ O MERCADO NA ÁREA</h6>
+                  </underscore>
 
-                    <ul class="reset-ul">
-                        <list-item v-for="(texto, y) in curso.acf.mercado" :key="y">
-                        {{ texto.texto }}
-                        </list-item>
-                    </ul>
-                </div>
-            </div>
-          <br />
+                  <ul class="reset-ul">
+                      <list-item v-for="(texto, y) in curso.acf.mercado" :key="y">
+                      {{ texto.texto }}
+                      </list-item>
+                  </ul>
+              </div>
+          </div>
           <div class="irareceber">
             <underscore linecolor="#FCA311" class="mb-10">
               <h6>VOCE TAMBÉM IRÁ RECEBER</h6>
             </underscore>
 
-            <div class="mb-5">
+            <div>
               <v-row align="center" justify="center"
                 ><v-col cols="2">
                   <v-icon color="#222C35" size="50" aria-hidden="false">
-                    fa-microphone-alt
+                    fa-certificate
                   </v-icon> </v-col
                 ><v-col>
                   <div class="Titulo">Curso de formação com certificado</div>
@@ -64,7 +63,7 @@
               <v-row align="center" justify="center"
                 ><v-col cols="2">
                   <v-icon color="#222C35" size="50" aria-hidden="false">
-                    fa-microphone-alt
+                    fa-network-wired
                   </v-icon> </v-col
                 ><v-col>
                   <div class="Titulo">Comunidade de Networking</div>
@@ -74,17 +73,11 @@
                 </v-col></v-row
               >
             </div>
-            <br />
-            <v-btn depressed dark color="#222c35" class="mr-5 mb-2">
-              Baixar PDF do Curso
-            </v-btn>
-            <v-btn v-if="false" depressed dark color="#222c35" class="mr-5 mb-2">
-              Portaria MEC
-            </v-btn>
+
           </div>
         </v-col>
 
-        <v-col cols="" xs="12" sm="12" md="6" lg="6" class="px-3">
+        <v-col cols="" xs="12" sm="12" md="6" lg="6" class="px-3 mb-5">
           <underscore linecolor="#FCA311">
             <h6>CONTEÚDO PROGRAMÁTICO</h6>
           </underscore>
@@ -96,6 +89,17 @@
           </ul>
         </v-col>
       </v-row>
+      <div class="text-right">
+        <v-btn depressed dark color="#FCA311" to="/cursos" class="mr-5 mb-2 rounded-0">
+          Quero me matricular!
+        </v-btn>
+        <v-btn v-if="false" depressed dark color="#222c35" class="mr-5 mb-2">
+          Portaria MEC
+        </v-btn>
+      </div>
+      <div class="mb-n16" v-if="false">
+        <v-img src="@/assets/Mockup/maocelular.png"></v-img>
+      </div>
     </v-container>
   </div>
 </template>
@@ -159,5 +163,23 @@ export default {
   data() {
     return {};
   },
+  mounted() {
+  },
+  methods:{
+    funcaoTravada(){
+      this.$toast.warning("Ops, essa função está em fase de desenvolvimento...", {
+        position: "top-right",
+        timeout: 5000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        closeButton: "button",
+        rtl: false
+      });
+    }
+  }
 };
 </script>

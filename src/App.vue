@@ -91,15 +91,17 @@ export default {
   },
   methods: {
     getApi(){
-      
       this.$store.commit("getPosts");
-      
-    }
+    },
+    buscarUrl(){
+        return window.location.href
+    },
   },
   mounted() {
     VueScript2.load('https://vlibras.gov.br/app/vlibras-plugin.js').then(function () {
       new window.VLibras.Widget('https://vlibras.gov.br/app');
     })
+
   }
 };
 </script>

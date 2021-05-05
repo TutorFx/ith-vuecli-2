@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="spacer" />
                                 <div class="modality-bar">
-                                    <h2>{{curso.tipo == 2 ? 'PÓS GRADUAÇÃO' : (curso.tipo == 1 ? 'EXTENSÃO' : '')}}</h2>
+                                    <h2>{{(curso.tipo == 1 ? 'Pós Graduação' :  curso.tipo == 2 || curso.tipo == 3 ? 'Extensão' : curso.tipo == 4 ? 'Internacional' : curso.tipo == 5 ? 'Técnico' : curso.tipo == 6 ? 'Graduação' : 'Error 404').toUpperCase()}}</h2>
                                 </div>
                                 <div class="card-titulo">
                                     <h4 v-html="curso.titulo"></h4>
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="spacer" />
                                 <div class="modality-bar">
-                                    <h2>{{curso.tipo == '1' ? 'PÓS GRADUAÇÃO' : (curso.tipo == '2' ? 'EXTENSÃO' : '')}}</h2>
+                                    <h2>{{(curso.tipo == 1 ? 'Pós Graduação' :  curso.tipo == 2 || curso.tipo == 3 ? 'Extensão' : curso.tipo == 4 ? 'Internacional' : curso.tipo == 5 ? 'Técnico' : curso.tipo == 6 ? 'Graduação' : 'Error 404').toUpperCase()}}</h2>
                                 </div>
                                 <div class="card-titulo">
                                     <h4 v-html="curso.titulo"></h4>

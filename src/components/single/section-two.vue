@@ -5,14 +5,14 @@
     <v-container class="container-Curso">
       <v-row align="end">
         <v-col cols="" xs="12" md="7" class="mb-5">
-          <div v-if="$store.state.api.cursoLoaded" class="Titulo mb-3">{{curso.acf.categoria == 1 ? 'Pós Graducação' :  curso.acf.categoria == 2 || curso.acf.categoria == 3 ? 'Extensão' : curso.acf.categoria == 4 ? 'Internacional' : curso.acf.categoria == 5 ? 'Técnico' : curso.acf.categoria == 6 ? 'Graduação' : 'Error 404'}}</div>
+          <div v-if="$store.state.api.cursoLoaded" class="Titulo mb-3">{{(curso.acf.categoria == 1 ? 'Pós Graduação' :  curso.acf.categoria == 2 || curso.acf.categoria == 3 ? 'Extensão' : curso.acf.categoria == 4 ? 'Internacional' : curso.acf.categoria == 5 ? 'Técnico' : curso.acf.categoria == 6 ? 'Graduação' : 'Error 404')}}</div>
 
           <div v-if="$store.state.api.cursoLoaded" class="SubTitulo mb-1">
             {{ curso.titulo }}
           </div>
 
-          <ul>
-            <li>Enfermeiros</li>
+          <ul v-if="$store.state.api.cursoLoaded" class="d-flex">
+            <li class="mr-10" v-for="(publico, i) in curso.acf.publico_alvo" :key="i">{{publico.name}}</li>
           </ul>
 
           <div v-if="$store.state.api.cursoLoaded" v-html="curso.acf.descricao" class="Desc mt-3 mb-7">
@@ -21,7 +21,7 @@
           <v-row v-if="$store.state.api.cursoLoaded">
             <v-col cols="" xs="12" sm="12" md="6">
               <div class="Inf">
-                <v-icon color="#fca311">fa-book</v-icon>
+                <v-icon color="#fca311" class="mr-3">fa-book</v-icon>
                 Reconhecida pelo MEC
               </div>
             </v-col>
@@ -33,17 +33,17 @@
               </div>
             </v-col>
 
-            <v-col cols="" xs="12" sm="12" md="6">
+            <v-col v-if="curso.acf.carga_horaria_h" cols="" xs="12" sm="12" md="6">
               <div class="Inf">
                 <v-icon color="#fca311" class="mr-3">fa-clock</v-icon>
-                {{curso.acf.carga_horaria_h}} horas
+                {{curso.acf.carga_horaria_h}} HORAS
               </div>
             </v-col>
 
             <v-col v-if="curso.acf.carga_horaria_m" cols="" xs="12" sm="12" md="6">
               <div class="Inf">
                 <v-icon color="#fca311" class="mr-3">fa-hourglass-half</v-icon>
-                {{curso.acf.carga_horaria_m}} Meses
+                {{(curso.acf.carga_horaria_m).toUpperCase()}}
               </div>
             </v-col>
           </v-row>

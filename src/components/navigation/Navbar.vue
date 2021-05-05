@@ -131,7 +131,7 @@
 
                                 <v-list-item
                                     dense
-                                    href="https://aluno.eduqtecnologia.com.br/#/login"
+                                    href="https://aluno.ithpos.com.br/#/login"
                                 >
                                     <v-list-item-icon>
                                         <v-icon v-text="'mdi-login'"></v-icon>

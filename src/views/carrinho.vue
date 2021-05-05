@@ -49,6 +49,7 @@ export default {
     },
     methods: {
         carregarCarrinho(){
+            
             let eduq
             let produtos = []
             let selecao = []
@@ -62,7 +63,7 @@ export default {
                     //console.log(this.$store.state.api.eduq[eduq])
 
                     if(this.produto.id == this.$store.state.api.eduq[eduq].id){
-                        //console.log(this.produto.id)
+                        console.log(this.produto.id)
                         produtos.push({
                             id: this.produto.id,
                             titulo: this.$store.state.api.eduq[eduq].titulo,
@@ -86,10 +87,11 @@ export default {
             this.storage.carrinho.splice(id, 1)
         },
         comprar(){
-            window.open(`http://inscricao.eduqtecnologia.com.br/login-aluno?dominio=ith&cursos=[${this.selecao}]&carrinhoDeCompra=1`);
+            window.open(`https://matricula.ithpos.com.br/login-aluno?dominio=ith&cursos=[${this.selecao}]&carrinhoDeCompra=1`);
         }
     },
     created(){
+        this.$store.commit("getEduq");
     },
     mounted() {
         this.carregarCarrinho()

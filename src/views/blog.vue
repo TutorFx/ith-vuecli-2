@@ -43,7 +43,7 @@
                 <v-row>
                     <v-col cols="12" md="2">
                         <div class="sidebar">
-                            <v-btn to="/cursos" color="#fca311" depressed small class="black--text">
+                            <v-btn to="/cursos" color="#fca311" depressed x-small class="black--text">
                                 Me matricular
                             </v-btn>
                         </div>
