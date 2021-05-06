@@ -27,7 +27,7 @@
             </div>
             <div :style="!$vuetify.breakpoint.mobile ? 'height:200px;' : ''"></div>
             <v-img class="mb-15" src="@/assets/quem-somos/timeline.svg"></v-img>
-            <v-img class="mb-15" src="@/assets/quem-somos/time.svg"></v-img>
+            <v-img class="mb-15" src="@/assets/quem-somos/time.jpg"></v-img>
         </v-container>
     </div>
 </div>

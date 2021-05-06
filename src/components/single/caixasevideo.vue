@@ -23,7 +23,7 @@
 
                 <div v-if="curso.acf.mensalidades" class="topic">
                     <ul>
-                        <li>1x de <strong> R$ {{ (curso.acf.mensalidades * (curso.acf.preco_promo == false ? curso.acf.preco : curso.acf.preco_promo)).toFixed(2).replace('.',',') }}</strong></li>
+                        <li>1x de <strong> R$ {{ parseFloat(curso.acf.pav ? (curso.acf.pav) : (curso.acf.mensalidades * (curso.acf.preco_promo == false ? curso.acf.preco : curso.acf.preco_promo))).toFixed(2).replace('.',',') }}</strong></li>
                     </ul>
                 </div>
                 
@@ -38,8 +38,7 @@
                   Adicione mais um curso com um super desconto. <br />
                   <strong> Não perca tempo! </strong>
                 </div>
-
-                <v-btn to="/cursos" class="rounded-0" depressed small dark color="#FCA311"> Quero! </v-btn>
+                <v-btn @click="curso.acf.id != undefined ? storage.carrinho.push(JSON.stringify({img: curso.thumbnail.large, id: curso.acf.id, url: rota})) :''" to="/carrinho" class="rounded-0" depressed small dark color="#FCA311"> Quero! </v-btn>
               </div>
             </v-col>
             <v-col cols="" xs="12" md="6" >
@@ -208,5 +207,13 @@ export default {
       curso: Object
     },
     components:{ share, espectadores },
+    data() {
+      return {
+        rota: ''
+      };
+    },
+    mounted() {
+      this.rota = this.$router.currentRoute.fullPath
+    },
 };
 </script>

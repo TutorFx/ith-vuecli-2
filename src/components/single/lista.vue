@@ -90,7 +90,7 @@
         </v-col>
       </v-row>
       <div class="text-right">
-        <v-btn depressed dark color="#FCA311" to="/cursos" class="mr-5 mb-2 rounded-0">
+        <v-btn depressed dark color="#FCA311" @click="curso.acf.id != undefined ? storage.carrinho.push(JSON.stringify({img: curso.thumbnail.large, id: curso.acf.id, url: rota})) :'';" to="/carrinho" class="mr-5 mb-2 rounded-0">
           Quero me matricular!
         </v-btn>
         <v-btn v-if="false" depressed dark color="#222c35" class="mr-5 mb-2">
@@ -161,9 +161,12 @@ export default {
   components: { underscore, listItem },
   props: { curso: Object },
   data() {
-    return {};
+    return {
+      rota: ''
+    };
   },
   mounted() {
+    this.rota = this.$router.currentRoute.fullPath
   },
   methods:{
     funcaoTravada(){

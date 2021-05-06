@@ -105,7 +105,7 @@ export default {
     }
     #carrinho-container{
         background: #1c242b;
-        min-height: 600px;
+        min-height: 30vh;
         border-start-start-radius: 15px;
         border-start-end-radius: 15px;
     }

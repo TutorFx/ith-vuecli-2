@@ -22,7 +22,7 @@
             <v-col cols="" xs="12" sm="12" md="6">
               <div class="Inf">
                 <v-icon color="#fca311" class="mr-3">fa-book</v-icon>
-                Reconhecida pelo MEC
+                Reconhecida {{ !$route.params.slug == 'acsl-ashi' ? 'pelo ITH' : 'pela ASHI'}}
               </div>
             </v-col>
 
@@ -72,7 +72,10 @@
               <div class="intersection">
                 <div class="intersection-stroke"></div>
                 <div class="intersection-botao">
-                  <v-btn depressed :disabled="!curso.acf.id" dark color="#222C35" @click="curso.acf.id != undefined ? storage.carrinho.push(JSON.stringify({img: curso.thumbnail.large, id: curso.acf.id, url: rota})) :''">
+                  <v-btn depressed :disabled="!curso.acf.id" dark color="#222C35" @click="curso.acf.id != undefined ? storage.carrinho.push(JSON.stringify({img: curso.thumbnail.large, id: curso.acf.id, url: rota})) :''" to="/carrinho">
+                    Me Matricular
+                  </v-btn>
+                  <v-btn depressed v-if="false" :disabled="!curso.acf.id" dark color="#222C35" @click="curso.acf.id != undefined ? abrirWhatsapp(curso.titulo) :''">
                     Me Matricular
                   </v-btn>
                 </div>
@@ -178,6 +181,9 @@ export default {
   methods:{
     add(object){
       this.$store.commit("cartStore", object)
+    },
+    abrirWhatsapp(titulo){
+      window.open(`https://api.whatsapp.com/send?phone=556230917079&text=Ol%C3%A1,%20eu%20gostaria%20de%20me%20inscrever%20para%20o%20curso%20de%20${decodeURI(titulo)}.`)
     }
   }
 };
