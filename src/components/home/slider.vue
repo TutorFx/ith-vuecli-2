@@ -11,11 +11,14 @@
                     <div>
                         <div class="img-item-wraper">
                             <div class="img-item" >
-                                <v-img contain :style="`max-height: ${$route.name == 'Home' ? 90+'vh' : 70+'vh'};`" :src="item.src"></v-img>
+                                <v-img contain v-if="$vuetify.breakpoint.xs || $vuetify.breakpoint.sm && item.acf.mobile" position="center center" :style="`height: ${$route.name == 'Home' ? 90+'vh' : 70+'vh'};`" :src="item.acf.mobile ? item.acf.mobile : ''"></v-img>
+                                <v-img contain v-else-if="$vuetify.breakpoint.md && item.acf.medium" position="center center" :style="`height: ${$route.name == 'Home' ? 90+'vh' : 70+'vh'};`" :src="item.acf.medium ? item.acf.medium : ''"></v-img>
+                                <v-img contain v-else-if="$vuetify.breakpoint.lg && item.acf.large" position="center center" :style="`height: ${$route.name == 'Home' ? 90+'vh' : 70+'vh'};`" :src="item.acf.large ? item.acf.large : ''"></v-img>
+                                <v-img contain v-else position="center center" :style="`height: ${$route.name == 'Home' ? 90+'vh' : 70+'vh'};`" :src="item.thumbnail ? item.thumbnail : ''"></v-img>
                             </div>
                             <div class="botoes mb-10">
 
-                                <v-btn depressed to="/institucional/quem-somos" class="mr-2 mb-2 ml-15 black--text" color="#F4F4F4">Saiba Mais</v-btn>
+                                <v-btn depressed to="/institucional/quem-somos" class="mr-2 mb-2 black--text" color="#F4F4F4">Saiba Mais</v-btn>
                                 <v-btn depressed to="/cursos" class="mb-2" color="#FCA311">Me Matricular</v-btn>
 
                             </div>
@@ -34,16 +37,29 @@ export default {
     data () {
         return {
         items: [
-            {
-            src: `${require('@/assets/Slider/slide1.png')}`,
-            },
-            {
-            src: `${require('@/assets/Slider/slide1.png')}`,
-            },
-
+            // {
+            // src: `${require('@/assets/Slider/slide1.png')}`,
+            // },
         ],
         }
     },
+    created(){
+        this.$store.commit("getSlides")
+    },
+    watch: {
+        '$store.state.api.slides': function() {
+            console.log('aaaa')
+            if (this.$store.state.api.slidesError == false){
+                for(this.a in this.$store.state.api.slides){
+                    this.items.push(this.$store.state.api.slides[this.a])
+                }
+                console.log(this.items)
+            }
+        },
+        '$store.state.api.slidesError': function() {
+            console.log('triggered')
+        },
+    }
 }
 </script>
 

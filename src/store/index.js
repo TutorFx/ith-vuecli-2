@@ -14,15 +14,17 @@ export default new Vuex.Store({
     },
     api: {
       cursos: [],
+      slides: [],
       posts: [],
       cursosError: false,
       postsError: false,
+      slidesError: false,
       curso: [],
       cursoError: [],
       cursoLoaded: [],
       cursoFiltrado: [],
       eduq: [],
-      eduqerror: []
+      eduqerror: [],
     },
     carrinho:{
       array: []
@@ -65,6 +67,16 @@ export default new Vuex.Store({
       }).catch((error) => {
         console.log('Ocorreu um erro comunicar API: ' + error);
         state.api.postsError = true
+      })
+    },
+    getSlides(state){
+      axios.get('https://v2.ithpos.com.br/api/index.php?rest_route=/ith/v1/slides').then((resslidea) => {
+        state.api.slides = resslidea.data
+        state.api.slidesError = false
+        console.log(resslidea.data)
+      }).catch((error) => {
+        console.log('Ocorreu um erro comunicar API: ' + error);
+        state.api.slidesError = true
       })
     },
     getApiSingle(state, payload){

@@ -30,6 +30,9 @@ export default {
                 this.curso = this.$store.state.api.curso[this.$route.params.slug]
                 console.log(this.$store.state.api.curso[this.$route.params.slug])
             }
+        },
+        '$route.params.slug': function() {
+            this.getCurso(this.$route.params.slug)
         }
     },
     components: { layout, single }
