@@ -1,11 +1,5 @@
 <template>
   <v-app>
-    <div vw class="enabled">
-      <div vw-access-button class="active"></div>
-      <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
-      </div>
-    </div>
     <router-view />
   </v-app>
 </template>
@@ -77,11 +71,9 @@ li a {
 </style>
 
 <script>
-import VueScript2 from 'vue-script2'
 export default {
   name: 'App',
   components: {
-
   },
   data: () => ({
     //
@@ -96,12 +88,19 @@ export default {
     buscarUrl(){
         return window.location.href
     },
+    zoom(z){
+      document.body.style.zoom = z;
+    }
   },
   mounted() {
-    VueScript2.load('https://vlibras.gov.br/app/vlibras-plugin.js').then(function () {
-      new window.VLibras.Widget('https://vlibras.gov.br/app');
-    })
-
+    this.z = this.storage.texto
+    this.zoom(`${this.z == 0 ? '100': this.z == 1 ? '125' : this.z == 2 ? '150' : '100'}%`)
+  },
+  watch:{
+    'storage.texto': function() {
+      this.z = this.storage.texto
+      this.zoom(`${this.z == 0 ? '100': this.z == 1 ? '125' : this.z == 2 ? '150' : '100'}%`)
+    }
   }
 };
 </script>

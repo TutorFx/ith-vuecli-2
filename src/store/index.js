@@ -28,6 +28,9 @@ export default new Vuex.Store({
     },
     carrinho:{
       array: []
+    },
+    config:{
+      open:false,
     }
   },
   mutations: {
@@ -49,6 +52,9 @@ export default new Vuex.Store({
     },
     cursofiltrado(state, payload){
       state.api.cursoFiltrado = payload
+    },
+    toggleConfig(state){
+      state.config.open = !state.config.open
     },
     getApi(state){
       axios.get('https://v2.ithpos.com.br/api/index.php?rest_route=/ith/v1/cursos/').then((resposta) => {

@@ -22,7 +22,7 @@
             <v-col cols="" xs="12" sm="12" md="6">
               <div class="Inf">
                 <v-icon color="#fca311" class="mr-3">fa-book</v-icon>
-                Reconhecida {{ !$route.params.slug == 'acsl-ashi' ? 'pelo ITH' : 'pela ASHI'}}
+                Reconhecida {{ !($route.params.slug == 'acsl-ashi') ? 'pelo ITH' : 'pela ASHI' }}
               </div>
             </v-col>
 
@@ -173,6 +173,7 @@ export default {
   mounted() {
     //console.log(this.$router.currentRoute.fullPath);
     this.rota = this.$router.currentRoute.fullPath
+    console.log(this.$route.params.slug)
   },
   data: () => ({
     model: 0,

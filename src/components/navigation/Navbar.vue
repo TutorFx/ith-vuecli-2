@@ -94,6 +94,30 @@
                         >
                             <v-list-item-group
                             >
+                            <v-list-group
+                            :value="false"
+                            no-action
+                            sub-group
+                            color="white"
+                            >
+                                <template v-slot:activator>
+                                    <v-list-item-content>
+                                        <v-list-item-title dense dark>Acessibilidade</v-list-item-title>
+                                    </v-list-item-content>
+                                </template>
+
+                                    <v-slider
+                                    label="Texto"
+                                    v-model="storage.texto"
+                                    tick-size="4"
+                                    step="1"
+                                    dark
+                                    :max="2"
+                                    max-width="200px"
+                                    ></v-slider>
+
+
+                            </v-list-group>
                             <v-list-item to="/">
                                 <v-list-item-icon>
                                     <v-icon> mdi-home </v-icon>

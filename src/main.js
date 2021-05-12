@@ -19,6 +19,7 @@ Vue.use(require('vue-script2'))
 Vue.use(ReactiveStorage, {
   // Set initial values
     "carrinho": [],
+    "texto": 0,
 });
 
 

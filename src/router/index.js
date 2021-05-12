@@ -40,6 +40,11 @@ const routes = [
     name: 'Institucional',
     redirect: { path: '/institucional/quem-somos' }
   },
+  {
+    path: '/configuracao',
+    name: 'Configuração',
+    component: () => import('../views/config.vue')
+  },
   // {
   //   path: '/sobreith',
   //   name: 'Sobre ITH',
