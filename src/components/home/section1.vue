@@ -1,5 +1,5 @@
 <template>
-  <div class="sec2">
+  <div class="sec2" :class="storage.contraste ? 'contraste':''">
       <v-container>
         <div>
           <div class="data-container">

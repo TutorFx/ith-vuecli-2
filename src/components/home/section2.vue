@@ -1,5 +1,5 @@
 <template>
-  <div class="qualities-background" :style="`background-image: url(${require('@/assets/Sections/HomeTwo/sectwo.svg')});`">
+  <div class="qualities-background" :style="`background-image: url(${require('@/assets/Sections/HomeTwo/sectwo.svg')});`" :class="storage.contraste ? 'contraste':''">
     <v-container>
       <v-row class="wraper-qualities py-15" align="center" justify="center">
         <v-col cols="12" sm="6" md="">

@@ -1,27 +1,23 @@
 <template>
-    <div class="slider-container">
+    <div class="slider-container" >
         <div class="reset-slider">
-            <v-container fixed class="py-0 px-0">
-            <v-carousel :height="$route.name == 'Home' ? 90+'vh' : 70+'vh'" hide-delimiters>
+            <div :style="`height:${!$vuetify.breakpoint.mobile ? '150px':'48px'};`"></div>
+            <v-carousel hide-delimiters height="auto">
                 <v-carousel-item
-                    v-for="(item,i) in items" :key="i">
-                    <div>
-                        <div class="img-item-wraper">
-                            <div class="img-item" >
-                                <v-img contain v-if="$vuetify.breakpoint.xs || $vuetify.breakpoint.sm && item.acf.mobile" position="center bottom" :style="`height: ${$route.name == 'Home' ? 90+'vh' : 70+'vh'};`" :src="item.acf.mobile ? item.acf.mobile : ''"></v-img>
-                                <v-img contain v-else-if="$vuetify.breakpoint.md && item.acf.medium" position="center bottom" :style="`height: ${$route.name == 'Home' ? 90+'vh' : 70+'vh'};`" :src="item.acf.medium ? item.acf.medium : ''"></v-img>
-                                <v-img contain v-else-if="$vuetify.breakpoint.lg && item.acf.large" position="center bottom" :style="`height: ${$route.name == 'Home' ? 90+'vh' : 70+'vh'};`" :src="item.acf.large ? item.acf.large : ''"></v-img>
-                                <v-img contain v-else position="center bottom" :style="`height: ${$route.name == 'Home' ? 90+'vh' : 70+'vh'};`" :src="item.thumbnail ? item.thumbnail : ''"></v-img>
-                            </div>
-                            <div class="botoes mb-10">
-                                <v-btn depressed to="/institucional/quem-somos" class="mr-2 mb-2 black--text" color="#F4F4F4">Saiba Mais</v-btn>
-                                <v-btn depressed to="/cursos" class="mb-2" color="#FCA311">Me Matricular</v-btn>
-                            </div>
-                        </div>
-                    </div>
+                v-for="(item,i) in items" :key="i">
+                    <v-container class="pa-0">
+                        <v-img 
+                        :src="$vuetify.breakpoint.name == 'xs' || $vuetify.breakpoint.name == 'sm' ? item.acf.mobile : $vuetify.breakpoint.name == 'md' ? item.acf.medium : $vuetify.breakpoint.name == 'lg' ? item.acf.large : item.thumbnail" 
+                        :aspect-ratio="bp[$vuetify.breakpoint.name].x/bp[$vuetify.breakpoint.name].y"
+                        align="center center"
+                        contain
+                        ></v-img>
+                    </v-container>
                 </v-carousel-item>
             </v-carousel>
-            </v-container>
+            <v-card v-if="false" dark class="text-center">
+            {{$vuetify.breakpoint.name}}
+            </v-card>
         </div>
     </div>
 </template>
@@ -35,6 +31,28 @@ export default {
             // src: `${require('@/assets/Slider/slide1.png')}`,
             // },
         ],
+        bp: {
+            sm: {
+                x: 751,
+                y: 832
+            },
+            xs: {
+                x: 751,
+                y: 832
+            },
+            md: {
+                x: 1875,
+                y: 1816
+            },
+            lg: {
+                x: 2048,
+                y: 1600
+            },
+            xl: {
+                x: 751,
+                y: 432
+            }
+        }
         }
     },
     created(){
@@ -62,20 +80,5 @@ export default {
   }
   .slider-container{
       background-color: #222C35!important;
-  }
-  .img-item-wraper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-      .img-item{
-          .v-image{
-
-          }
-      }
-    .botoes{
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
   }
 </style>

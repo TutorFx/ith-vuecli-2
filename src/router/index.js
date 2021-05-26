@@ -140,11 +140,16 @@ const routes = [
   //   name: 'Revista',
   //   component: () => import('../views/revista.vue')
   // },
-  // {
-  //   path: '/ouvidoria',
-  //   name: 'Ouvidoria',
-  //   component: () => import('../views/ouvidoria.vue')
-  // },
+  {
+    path: '/ouvidoria/:layout',
+    name: 'Ouvidoria Select',
+    component: () => import('../views/ouvidoria.vue')
+  },
+  {
+    path: '/ouvidoria/',
+    name: 'Ouvidoria',
+    component: () => import('../views/ouvidoria.vue')
+  },
   // {
   //   path: '/faq',
   //   name: 'FAQ',

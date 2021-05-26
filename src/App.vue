@@ -1,11 +1,15 @@
 <template>
   <v-app>
-    <router-view />
+    <div>
+        <router-view />
+    </div>
   </v-app>
 </template>
 
 <style lang="scss">
-
+div[vw]{
+    top: 50%!important;
+}
   @font-face {
     font-family: 'Gilmer';
     src: url('./assets/Fonts/GilmerMedium.woff2') format('woff2'),

@@ -2,7 +2,7 @@
   <layout>
       <slider />
       <blocks />
-      <div class="primary">
+      <div class="primary" :class="storage.contraste ? 'contraste':''">
             <v-container>
                 <v-tabs :show-arrows="true" background-color="primary" class="pl-0" dark>
                     <v-tab to="quem-somos" >Quem Somos</v-tab>
@@ -17,7 +17,7 @@
             <h3>Essa página está em construção</h3>
           </div>
       </div>
-      <quem-somos v-if="$route.params.layout == 'quem-somos'"></quem-somos>
+      <quem-somos v-if="$route.params.layout == 'quem-somos'" :class="storage.contraste ? 'contraste':''"></quem-somos>
 
   </layout>
 </template>

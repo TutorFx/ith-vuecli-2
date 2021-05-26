@@ -2,9 +2,11 @@
   <div class="cursos">
     <layout>
       <slider />
-      <section-two />
+      
       <index />
+      
       <parceiros />
+      <section-two />
     </layout>
   </div>
 </template>

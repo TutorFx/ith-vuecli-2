@@ -3,13 +3,13 @@
     <div id="yellowline">
         <v-container>
             <v-row align-content="center" justify="center">
-                <v-col class="yellowlinks" align="center" cols="7">
+                <v-col class="yellowlinks" align="center" cols="6">
                     <v-btn to="/" small text>HOME</v-btn>
                     <v-btn to="/institucional" small text>INSTITUCIONAL</v-btn>
                     <v-btn to="/blog" small text>BLOG</v-btn>
                     <v-menu offset-y>
                         <template v-slot:activator="{ on, attrs }">
-                            <v-btn small text v-bind="attrs" v-on="on" >
+                            <v-btn small text v-bind="attrs" style="font-weight: 500;" v-on="on" >
                             ACESSO
                             </v-btn>
                         </template>
@@ -31,7 +31,7 @@
                     <v-btn class="mr-2" onclick="window.open('https://www.linkedin.com/company/ithpos', '_blank')" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fca311">fab fa-linkedin</v-icon></v-btn>
                     <v-btn class="mr-2" onclick="window.open('https://www.youtube.com/channel/UCrVECUVMXbh9FYdkVK_PbwA', '_blank')" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fca311">fab fa-youtube</v-icon></v-btn>
                     <v-btn class="mr-4" onclick="window.open('mailto:ithpos@ithpos.com.br', '_blank')" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="#fca311">mdi-email</v-icon></v-btn>
-                    <v-btn @click="configOpen()" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab tile><v-icon color="#fca311">fab fa-accessible-icon</v-icon></v-btn>
+                    <v-btn @click="configOpen()" small color="black" v-ripple="{ class: `warning--text` }" depressed dark><v-icon class="mr-3" small color="#fca311">fab fa-accessible-icon</v-icon> <span style="font-weight: 300; transform: translateY(-1px)">acessibilidade</span></v-btn>
                 </v-col>
             </v-row>
         </v-container>

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <layout>
+    <layout >
       <slider />
       <section-one />
       <section-two />

@@ -1,5 +1,5 @@
 <template>
-  <div class="section3" :style="`background-image: url(${require('@/assets/Sections/icon/s3logowhite.svg')});`">
+  <div class="section3" :style="`background-image: url(${require('@/assets/Sections/icon/s3logowhite.svg')});`" :class="storage.contraste ? 'contraste':''">
     <v-container class="pt-0">
       <v-row>
         <v-col cols="12" md="7" lg="6" xs="12">

@@ -9,6 +9,13 @@
             :key="i"
             >
                 <div class="pa-10">
+                    <div style="text-align:center">
+                    <v-avatar v-if="item.foto">
+                        <img
+                            :src="item.foto.sizes.thumbnail"
+                        >
+                    </v-avatar>
+                    </div>
                     <div class="text-center"><h3 class="white--text mb-5">{{item.nome}}</h3></div>
                     
                     <v-icon max-width="15px" color="#fca311">fas fa-quote-left</v-icon>

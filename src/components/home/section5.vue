@@ -1,5 +1,5 @@
 <template>
-    <div class="section5 pb-10" :style="`background-image: url(${require('@/assets/Sections/icon/s4logoblue.svg')});`">
+    <div class="section5 pb-10" :style="`background-image: url(${require('@/assets/Sections/icon/s4logoblue.svg')});`" :class="storage.contraste ? 'contraste':''">
         
     </div>
 </template>

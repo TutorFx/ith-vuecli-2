@@ -7,7 +7,7 @@
                 <v-img dark max-width="120px" class="mr-5" src="@/assets/Branding/Logo.svg"></v-img>
                 
                 <div class="menu">
-                    <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark>Vestibular</v-btn>
+                    <v-btn text v-if="false" :small=" ($vuetify.breakpoint.lg ? true : false)" dark>Vestibular</v-btn>
                     <v-btn to="/cursos" text :small="$vuetify.breakpoint.lg ? true : false" dark>Cursos</v-btn>
                     <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark>Acadêmico</v-btn>
                     <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark>Inovação e pesquisa</v-btn>
@@ -105,18 +105,20 @@
                                         <v-list-item-title dense dark>Acessibilidade</v-list-item-title>
                                     </v-list-item-content>
                                 </template>
-
-                                    <v-slider
-                                    label="Texto"
-                                    v-model="storage.texto"
-                                    tick-size="4"
-                                    step="1"
-                                    dark
-                                    :max="2"
-                                    max-width="200px"
-                                    ></v-slider>
-
-
+                                <v-slider
+                                label="Texto"
+                                v-model="storage.texto"
+                                tick-size="4"
+                                step="1"
+                                dark
+                                :max="2"
+                                max-width="200px"
+                                ></v-slider>
+                                <v-switch
+                                v-model="storage.contraste"
+                                inset
+                                :label="`Contraste: ${storage.contraste.toString()}`"
+                                ></v-switch>
                             </v-list-group>
                             <v-list-item to="/">
                                 <v-list-item-icon>

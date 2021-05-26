@@ -20,6 +20,7 @@ Vue.use(ReactiveStorage, {
   // Set initial values
     "carrinho": [],
     "texto": 0,
+    "contraste": false
 });
 
 

@@ -1,5 +1,5 @@
 <template>
-    <div v-intersect="onIntersect">
+    <div v-intersect="onIntersect" :class="storage.contraste ? 'contraste':''">
         <v-slide-group
         center-active
         v-if="type == 'slide'"
@@ -228,7 +228,7 @@ $paddingslider: 5px;
             background: #222C35;
             margin-right: -10px;
             .spacer{
-                min-height: 170px;    
+                min-height: 150px;    
             }
             .modality-bar{
                 display: flex;

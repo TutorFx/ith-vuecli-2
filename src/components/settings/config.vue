@@ -13,6 +13,12 @@
                 max-width="200px"
                 small
                 ></v-slider>
+                <v-switch
+                dark
+                v-model="storage.contraste"
+                inset
+                :label="`Contraste: ${storage.contraste ? 'Ativo':'Desabilitado'}`"
+                ></v-switch>
             </div>
         </div>
     </v-expand-transition>

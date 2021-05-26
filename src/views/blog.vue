@@ -1,7 +1,7 @@
 <template>
     <layout>
         <slider />
-        <div class="featured">
+        <div class="featured" :class="storage.contraste ? 'contraste':''">
             <v-container v-for="(post, i) in filtro().slice(0, 1)" :key="i">
                 <router-link :to="'/blog/'+post.slug">
                     <v-row class="py-10">
@@ -38,7 +38,7 @@
                 </router-link>
             </v-container>
         </div>
-        <div>
+        <div :class="storage.contraste ? 'contraste':''">
             <v-container class="py-15">
                 <v-row>
                     <v-col cols="12" md="2">

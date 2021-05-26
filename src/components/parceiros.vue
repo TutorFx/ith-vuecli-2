@@ -1,6 +1,6 @@
 <!-- HTML  -->
 <template>
-  <div id="parceiros">
+  <div id="parceiros" :class="storage.contraste ? 'contraste':''">
     
       <div class="Titulo">
         <div class="container-titulo" :style="`background-image: url(${require('@/assets/Sections/icon/parceiroslogowhite.svg')})`">

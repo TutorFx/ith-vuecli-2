@@ -56,9 +56,12 @@
           </v-row>  
         </v-col>
         <v-col cols="12" md="4">
-          <v-card color="primary" depressed dark class="rounded-0">
-            <v-responsive :aspect-ratio="1/1">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/u59TFBuPInk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <v-card color="primary" v-if="$store.state.api.cursoLoaded" depressed dark class="rounded-0">
+            <v-responsive v-if="!!curso.acf.video_youtube" :aspect-ratio="1/1">
+                <iframe width="100%" height="100%" :src="curso.acf.video_youtube" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <iframe width="100%" height="100%" :src="curso.acf.video_youtube" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </v-responsive>            
+            <v-responsive v-else :aspect-ratio="1/1">
+                <iframe width="100%" height="100%" :src="'https://www.youtube.com/embed/u59TFBuPInk'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <iframe width="100%" height="100%" :src="curso.acf.video_youtube" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </v-responsive>
           </v-card>
         </v-col>

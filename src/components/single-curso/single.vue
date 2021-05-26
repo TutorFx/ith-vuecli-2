@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="storage.contraste ? 'contraste':''">
         <section-one />
         <section-two :curso="curso" />
         <caixas-video :curso="curso" />

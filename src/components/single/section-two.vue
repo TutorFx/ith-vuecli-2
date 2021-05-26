@@ -1,7 +1,7 @@
 <!-- CONFIG. HTML -->
 <template>
   <div class="sectionCurso">
-    <div class="spacer" />
+    <div :style="`min-height:${$vuetify.breakpoint.mobile ? '10':'20'}vh;`" />
     <v-container class="container-Curso">
       <v-row align="end">
         <v-col cols="" xs="12" md="7" class="mb-5">
@@ -11,9 +11,11 @@
             {{ curso.titulo }}
           </div>
 
-          <ul v-if="$store.state.api.cursoLoaded" class="d-flex">
-            <li class="mr-10" v-for="(publico, i) in curso.acf.publico_alvo" :key="i">{{publico.name}}</li>
-          </ul>
+          <v-card-text v-if="$store.state.api.cursoLoaded" class="ml-xl-n5 ml-lg-n5">
+                <v-chip-group dark>
+                    <v-chip color="#fca311" outlined v-for="(publico, i) in curso.acf.publico_alvo" :key="i">{{publico.name}}</v-chip>
+                </v-chip-group>
+          </v-card-text>
 
           <div v-if="$store.state.api.cursoLoaded" v-html="curso.acf.descricao" class="Desc mt-3 mb-7">
           </div>
@@ -22,7 +24,7 @@
             <v-col cols="" xs="12" sm="12" md="6">
               <div class="Inf">
                 <v-icon color="#fca311" class="mr-3">fa-book</v-icon>
-                Reconhecida {{ !($route.params.slug == 'acsl-ashi') ? 'pelo ITH' : 'pela ASHI' }}
+                Reconhecido {{ !($route.params.slug == 'acsl-ashi') ? (curso.acf.categoria == 1 ? 'pelo MEC' :  curso.acf.categoria == 2 || curso.acf.categoria == 3 ? 'pelo ITH' : curso.acf.categoria == 4 ? 'pelo ITH' : curso.acf.categoria == 5 ? 'Técnico' : curso.acf.categoria == 6 ? 'Graduação' : 'Error 404') : 'pela ASHI' }}
               </div>
             </v-col>
 
@@ -96,6 +98,9 @@
   background-color: #222c35;
   .spacer{
       min-height: 20vh;
+      .mobile{
+          min-height: 5vh;
+      }
   }
   .container-Curso {
     .intersection{
