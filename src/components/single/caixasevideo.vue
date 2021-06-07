@@ -41,7 +41,7 @@
                 <v-btn @click="curso.acf.id != undefined ? storage.carrinho.push(JSON.stringify({img: curso.thumbnail.large, id: curso.acf.id, url: rota})) :''" to="/carrinho" class="rounded-0" depressed small dark color="#FCA311"> Quero! </v-btn>
               </div>
             </v-col>
-            <v-col cols="" xs="12" md="6" >
+            <v-col v-if="false" cols="" xs="12" md="6" >
               <v-img :style=" !$vuetify.breakpoint.mobile ? 'margin-bottom: -30%; margin-left: -30%;' : ''" :min-width="!$vuetify.breakpoint.mobile ? '130%':'100%'" src="@/assets/cupom/cupom.svg"></v-img>
             </v-col>
             <v-col cols="" xs="12" md="6" >

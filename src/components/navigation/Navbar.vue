@@ -9,9 +9,9 @@
                 <div class="menu">
                     <v-btn text v-if="false" :small=" ($vuetify.breakpoint.lg ? true : false)" dark>Vestibular</v-btn>
                     <v-btn to="/cursos" text :small="$vuetify.breakpoint.lg ? true : false" dark>Cursos</v-btn>
-                    <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark>Acadêmico</v-btn>
-                    <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark>Inovação e pesquisa</v-btn>
-                    <v-btn text :small="$vuetify.breakpoint.lg ? true : false" dark class="transformith amber--text mr-5">Transformith</v-btn>
+                    <v-btn text v-if="false" :small="$vuetify.breakpoint.lg ? true : false" dark>Acadêmico</v-btn>
+                    <v-btn text v-if="false" :small="$vuetify.breakpoint.lg ? true : false" dark>Inovação e pesquisa</v-btn>
+                    <v-btn text v-if="false" :small="$vuetify.breakpoint.lg ? true : false" dark class="transformith amber--text mr-5">Transformith</v-btn>
                 </div>
 
                 <v-text-field class="busca" color="amber" dark v-model="search" @keyup.enter="buscar">
@@ -127,7 +127,7 @@
                                 <v-list-item-title>Home</v-list-item-title>
                             </v-list-item>
 
-                            <v-list-item to="/institucional">
+                            <v-list-item v-if="false" to="/institucional">
                                 <v-list-item-icon>
                                     <v-icon> mdi-creation </v-icon>
                                 </v-list-item-icon>
@@ -179,14 +179,14 @@
 
                             <v-divider></v-divider>
 
-                            <v-list-item>
+                            <v-list-item to="/ouvidoria/faq">
                                 <v-list-item-icon>
                                     <v-icon> mdi-phone </v-icon>
                                 </v-list-item-icon>
-                                <v-list-item-title>Ouvidoria</v-list-item-title>
+                                <v-list-item-title >Ouvidoria</v-list-item-title>
                             </v-list-item>
 
-                            <v-list-item>
+                            <v-list-item v-if="false">
                                 <v-list-item-icon>
                                     <v-icon> mdi-draw </v-icon>
                                 </v-list-item-icon>
@@ -200,21 +200,21 @@
                                 <v-list-item-title>Cursos</v-list-item-title>
                             </v-list-item>
 
-                            <v-list-item>
+                            <v-list-item v-if="false">
                                 <v-list-item-icon>
                                     <v-icon> mdi-teach </v-icon>
                                 </v-list-item-icon>
                                 <v-list-item-title>Acadêmico</v-list-item-title>
                             </v-list-item>
 
-                            <v-list-item>
+                            <v-list-item v-if="false">
                                 <v-list-item-icon>
                                     <v-icon> mdi-feature-search-outline </v-icon>
                                 </v-list-item-icon>
                                 <v-list-item-title>Inovação e pesquisa</v-list-item-title>
                             </v-list-item>
 
-                            <v-list-item>
+                            <v-list-item v-if="false">
                                 <v-list-item-icon>
                                     <v-icon> mdi-movie-open </v-icon>
                                 </v-list-item-icon>
@@ -245,8 +245,9 @@ export default {
         },
         buscar(){
             this.$store.commit("changeSearch", this.search);
-            if(this.$route.name != 'Cursos')
-            this.$router.push('Cursos')  
+            if(this.$route.name != 'Cursos'){
+                this.$router.push( {name:'Cursos'}) 
+            }
         }
     },
     mounted(){

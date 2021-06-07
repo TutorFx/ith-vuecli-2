@@ -29,10 +29,10 @@
                 <v-btn class="mr-2" onclick="window.open('mailto:ithpos@ithpos.com.br', '_blank')" x-small color="#fca311" v-ripple="{ class: `warning--text` }" depressed dark fab tile> <v-icon color="black">mdi-email</v-icon></v-btn>
             </v-col>
 
-            <div class="logo-endereco">
+            <a class="logo-endereco" onclick="window.open('https://www.google.com/maps/dir/-16.7070333,-49.2740054/google+maps+ith+pos/@-16.694314,-49.2767863,14z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x935ef1253591ecd9:0xc0bba475482eadb5!2m2!1d-49.2421684!2d-16.687732', '_blank')">
               Rua 203, Nº344 - St. Leste Universitário <br>
               CEP: 74.603-060 Goiânia - GO
-            </div>
+            </a>
 
 
           </v-col>
@@ -50,29 +50,31 @@
 
                 <div class="footerlinks">
                   <H3>ITH</H3> <br>
-                  <router-link class="" to="/academico"> Acadêmico </router-link> <br>
+                  <router-link class="" to="/institucional"> Institucional </router-link> <br>
                   <router-link class="" to="/cursos"> Cursos </router-link> <br>
                   <router-link class="" to="/blog"> Blog </router-link> <br>
-                  <router-link class="" to="/academico"> Quem Somos </router-link> <br>
-                  <router-link class="" to="/academico"> Transformith </router-link> <br>
+                  <a onclick="window.open('https://aluno.ithpos.com.br/#/login', '_blank')">Acesso Aluno</a><br>
+                  <a onclick="window.open('https://sistema.eduqtecnologia.com.br/#/nav/n5/home', '_blank')">Acesso Professor</a><br>
+                  <router-link v-if="false" class="" to="/academico"> Quem Somos </router-link> <br>
+                  <router-link v-if="false" class="" to="/academico"> Transformith </router-link> <br>
                 </div>
               </v-col>
 
 
               <v-col>
-                <div class="footerlinks">
+                <div v-if="false" class="footerlinks">
                   <H3>Informações</H3> <br>
-                  <router-link class="" to="/academico"> Termos de Serviço </router-link> <br>
-                  <router-link class="" to="/academico"> Politica e Privacidade </router-link> <br>
-                  <router-link class="" to="/academico"> LGPD </router-link> <br>
+                  <router-link v-if="false" class="" to="/academico"> Termos de Serviço </router-link> <br>
+                  <router-link v-if="false" class="" to="/academico"> Politica e Privacidade </router-link> <br>
+                  <router-link v-if="false" class="" to="/academico"> LGPD </router-link> <br>
                 </div>
               </v-col>
 
               <v-col>
-                <div class="footerlinks">
+                <div v-if="false" class="footerlinks">
                   <H4>Acesso</H4> <br>
-                  <router-link class="" to="/academico"> Termos de Serviço </router-link> <br>
-                  <router-link class="" to="/academico"> Politica e Privacidade </router-link> <br>
+                  <router-link v-if="false" class="" to="/academico"> Termos de Serviço </router-link> <br>
+                  <router-link v-if="false" class="" to="/academico"> Politica e Privacidade </router-link> <br>
                 </div>
               </v-col>
 

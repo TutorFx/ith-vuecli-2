@@ -86,13 +86,13 @@ const routes = [
   //   component: () => import('../views/cursos-de-extensao.vue')
   // },
   {
-    path: '/academico/:layout',
-    name: 'Academico Selected',
+    path: '/institucional/:layout',
+    name: 'Institucional Selected',
     component: () => import('../views/academico.vue')
   },
   {
-    path: '/academico/*',
-    name: 'Academico',
+    path: '/institucional/*',
+    name: 'Institucional',
     component: () => import('../views/academico.vue')
   },
   // {

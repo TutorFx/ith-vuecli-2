@@ -10,6 +10,7 @@
                         :src="$vuetify.breakpoint.name == 'xs' || $vuetify.breakpoint.name == 'sm' ? item.acf.mobile : $vuetify.breakpoint.name == 'md' ? item.acf.medium : $vuetify.breakpoint.name == 'lg' ? item.acf.large : item.thumbnail" 
                         :aspect-ratio="bp[$vuetify.breakpoint.name].x/bp[$vuetify.breakpoint.name].y"
                         align="center center"
+                        eager
                         contain
                         ></v-img>
                     </v-container>
