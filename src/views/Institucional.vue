@@ -1,6 +1,6 @@
 <template>
   <layout>
-      <slider />
+      <div  :style="`height:${!$vuetify.breakpoint.mobile ? '150px':'48px'};background-color: #2E3740`"></div>
       <blocks />
       <div class="primary" :class="storage.contraste ? 'contraste':''">
             <v-container>
@@ -22,14 +22,13 @@
   </layout>
 </template>
 
-<script>
-import slider from "@/components/home/slider"
+<script> 
 import layout from "@/components/Layout.vue"
 import blocks from "@/components/home/section2.vue"
 
 import quemSomos from "@/components/institucional/quem-somos.vue"
 export default {
-    components:{ layout, slider, blocks, quemSomos }
+    components:{ layout, blocks, quemSomos }
 }
 </script>
 

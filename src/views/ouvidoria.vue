@@ -1,6 +1,6 @@
 <template>
     <layout>
-        <slider />
+        <div  :style="`height:${!$vuetify.breakpoint.mobile ? '150px':'48px'};background-color: #2E3740`"></div>
         <blocks />
         <div class="primary">
                 <v-container>
@@ -264,14 +264,13 @@
 </template>
 
 <script>
-import slider from "@/components/home/slider"
 import layout from "@/components/Layout.vue"
 import blocks from "@/components/home/section2.vue"
 
 import underscore from "@/components/text/underscore.vue"
 
 export default {
-    components:{ layout, slider, blocks, underscore },
+    components:{ layout, blocks, underscore },
     data: () => ({
         activePicker: null,
         date: null,
