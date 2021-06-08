@@ -10,7 +10,7 @@
 div[vw]{
     top: 50%!important;
 }
-  @font-face {
+@font-face {
     font-family: 'Gilmer';
     src: url('./assets/Fonts/GilmerMedium.woff2') format('woff2'),
         url('./assets/Fonts/GilmerMedium.woff') format('woff');
