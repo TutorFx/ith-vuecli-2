@@ -1,6 +1,3 @@
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-    .BundleAnalyzerPlugin;
-
 module.exports = {
     pwa: {
         name: "ITH Pós Graduação",
@@ -16,8 +13,5 @@ module.exports = {
     },
     transpileDependencies: [
         'vuetify'
-    ],
-    configureWebpack: {
-        plugins: [new BundleAnalyzerPlugin()]
-    }
+    ]
 }
