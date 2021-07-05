@@ -30,7 +30,7 @@
                   </v-icon> </v-col
                 ><v-col>
                   <div class="Titulo">Curso de formação com certificado</div>
-                  <div class="Desc">
+                  <div class="Desc font-weight-light">
                     Gestão, Liderança, Empreendedorismo e Inovação
                   </div>
                 </v-col></v-row
@@ -42,7 +42,7 @@
                   </v-icon> </v-col
                 ><v-col>
                   <div class="Titulo">E-book exclusivo</div>
-                  <div class="Desc">
+                  <div class="Desc font-weight-light">
                     As 10 habilidades indispensáveis para os profissionais de
                     saúde.
                   </div>
@@ -55,7 +55,7 @@
                   </v-icon> </v-col
                 ><v-col>
                   <div class="Titulo">Podcast ITH Pós-Gradução</div>
-                  <div class="Desc">
+                  <div class="Desc font-weight-light">
                     Aulas, bate papos, com experts de várias áreas do pais
                   </div>
                 </v-col></v-row
@@ -67,7 +67,7 @@
                   </v-icon> </v-col
                 ><v-col>
                   <div class="Titulo">Comunidade de Networking</div>
-                  <div class="Desc">
+                  <div class="Desc font-weight-light">
                     Grupo Alunith com todos alunos e ex-alunos ITH.
                   </div>
                 </v-col></v-row

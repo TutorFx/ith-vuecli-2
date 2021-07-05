@@ -85,16 +85,7 @@ const routes = [
   //   name: 'Cursos de extensão',
   //   component: () => import('../views/cursos-de-extensao.vue')
   // },
-  {
-    path: '/institucional/:layout',
-    name: 'Institucional Selected',
-    component: () => import('../views/academico.vue')
-  },
-  {
-    path: '/institucional/*',
-    name: 'Institucional',
-    component: () => import('../views/academico.vue')
-  },
+
   // {
   //   path: '/secretaria',
   //   name: 'Secretaria',

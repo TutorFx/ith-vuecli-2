@@ -10,6 +10,9 @@ module.exports = {
         },
         start_url: "./index.html",
         display: "standalone",
+        workboxOptions: {
+            skipWaiting: true
+        }
     },
     transpileDependencies: [
         'vuetify'
