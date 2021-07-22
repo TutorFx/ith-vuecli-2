@@ -118,6 +118,7 @@
                 <br />
                 <router-link class="" to="/cursos"> Cursos </router-link> <br />
                 <router-link class="" to="/blog"> Blog </router-link> <br />
+                <router-link :to="`/page/${btn.slug}`" v-for="(btn, i) in $store.state.api.pages" :key="i">{{btn.titulo}}</router-link> <br>
                 <a
                   onclick="window.open('https://aluno.ithpos.com.br/#/login', '_blank')"
                   >Acesso Aluno</a
@@ -132,7 +133,7 @@
                 <br />
                 <router-link v-if="false" class="" to="/academico">
                   Transformith
-                </router-link>
+                </router-link> <br />
                 <br />
               </div>
             </v-col>

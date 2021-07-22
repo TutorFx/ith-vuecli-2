@@ -41,9 +41,9 @@ const routes = [
     redirect: { path: '/institucional/quem-somos' }
   },
   {
-    path: '/configuracao',
-    name: 'Configuração',
-    component: () => import('../views/config.vue')
+    path: '/page/:slug',
+    name: 'Página',
+    component: () => import('../views/page.vue')
   },
   // {
   //   path: '/sobreith',

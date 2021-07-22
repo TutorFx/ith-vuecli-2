@@ -6,18 +6,17 @@
                 <router-link :to="'/blog/'+post.slug">
                     <v-row class="py-10">
                         <v-col cols="12" md="6">
-                            <v-parallax height="300" :src="post.thumbnail.large"></v-parallax>
+                            <v-parallax height="300" :src="post.acf.thumbnail ? post.acf.thumbnail.url:post.thumbnail.large"></v-parallax>
                         </v-col>
                         <v-col cols="12" md="6" class="py-8">
                             <div v-if="true">
                                 <div class="mb-15">
                                     <h2 class="white--text">{{ post.titulo }}</h2>
-                                    <h3 class="white--text">{{post.desc.length > 80 ? post.desc.slice(0, 80) + '...' : post.desc}}</h3>
+                                    <h3 class="white--text">{{ post.desc.length > 80 ? post.desc.slice(0, 80) + '...' : post.desc }}</h3>
                                 </div>
                                 <v-row class="mb-5 px-3 white--text">
                                     <h4 class="mr-3">{{ post.date }}</h4>
-                                    <v-btn x-small depressed color="#FCA311" class="black--text mr-3">#saúde</v-btn>
-                                    <v-btn x-small depressed color="#FCA311" class="black--text mr-3">#pós-graduação</v-btn>
+                                    <v-btn v-for="(tag, i) in post.tags" :key="i" x-small depressed color="#FCA311" class="black--text mr-3 mb-3">{{tag}}</v-btn>
                                 </v-row>
                                 <v-row class="px-3" align="center">
                                     <v-avatar
@@ -25,11 +24,13 @@
                                     size="56"
                                     class="white--text mr-3"
                                     >
-                                        <h3>{{getInitials(post.autor)}}</h3>
+                                        <h3 v-if="!post.acf.foto">{{getInitials(post.autor)}}</h3>
+                                        <v-img v-else :src="post.acf.foto ? post.acf.foto.url : undefined"></v-img>
                                     </v-avatar>
-                                    <div>
-                                        <h4>{{ post.autor }}</h4>
-                                        <h6>Social Media</h6>
+                                    
+                                    <div style="word-break: break-word; max-width: calc(100% - 70px);">
+                                        <h4>{{post.acf.autor != null && post.acf.autor != '' ? post.acf.autor:post.autor}}</h4>
+                                        <h6 :class="post.acf.autor && post.acf.autor != '' ? undefined:'mt-1'">{{post.acf.autor_cargo}}</h6>
                                     </div>
                                 </v-row>
                             </div>
@@ -53,25 +54,25 @@
                         <v-row v-if="$store.state.api.postsError == false">
                             <v-col cols="12" md="4" v-for="(post, i) in filtro().slice(1)" :key="i">
                                 <router-link :to="'/blog/'+post.slug">
-                                <v-parallax height="220" class="mb-5" :src="post.thumbnail.large"></v-parallax>
+                                <v-parallax height="220" class="mb-5" :src="post.acf.thumbnail ? post.acf.thumbnail.url:post.thumbnail.large"></v-parallax>
                                 <h3 class="mb-3">{{post.titulo}}</h3>
                                 <h4 class="mb-5">{{post.desc.length > 80 ? post.desc.slice(0, 80) + '...' : post.desc}}</h4>
                                 <v-row class="px-3">
                                     <h5 class="mr-3 mb-3">{{ post.date }}</h5>
-                                    <v-btn x-small depressed color="#FCA311" class="black--text mr-3 mb-3">#saúde</v-btn>
-                                    <v-btn x-small depressed color="#FCA311" class="black--text mr-3 mb-3">#pós-graduação</v-btn>
+                                    <v-btn v-for="(tag, i) in post.tags" :key="i" x-small depressed color="#FCA311" class="black--text mr-3 mb-3">{{tag}}</v-btn>
                                 </v-row>
-                                <v-row class="px-3" align="end">
+                                <v-row class="px-3 mb-4" align="end">
                                     <v-avatar
                                     color="black"
                                     size="56"
                                     class="white--text mr-3"
                                     >
-                                        <h3>{{getInitials(post.autor)}}</h3>
+                                        <h3 v-if="!post.acf.foto">{{post.acf.autor != null ? getInitials(post.acf.autor):getInitials(post.autor)}}</h3>
+                                        <v-img v-else :src="post.acf.foto ? post.acf.foto.url : undefined"></v-img>
                                     </v-avatar>
-                                    <div>
-                                        <h4>{{ post.autor }}</h4>
-                                        <h6>Social Media</h6>
+                                    <div style="word-break: break-word; max-width: calc(100% - 70px);">
+                                        <h4>{{post.acf.autor != null && post.acf.autor != '' ? post.acf.autor:post.autor}}</h4>
+                                        <h6 :class="post.acf.autor && post.acf.autor != '' ? undefined:'mt-4'">{{post.acf.autor_cargo}}</h6>
                                     </div>
                                 </v-row>
                                 </router-link>
@@ -125,7 +126,11 @@ export default {
     }
 }
 </script>
-
+<style lang="scss">
+a:link{
+    text-decoration: none!important;
+}
+</style>
 <style scoped lang="scss">
 
   .featured{

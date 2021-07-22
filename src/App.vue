@@ -88,6 +88,7 @@ export default {
   methods: {
     getApi(){
       this.$store.commit("getPosts");
+      this.$store.commit("getPages");
     },
     buscarUrl(){
         return window.location.href

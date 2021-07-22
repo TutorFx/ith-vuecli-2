@@ -1,7 +1,6 @@
 <template>
     <div class="navigation-block">
         <div v-if="$vuetify.breakpoint.lg || $vuetify.breakpoint.xl" class="nav-container" :class="scrollPosition == 0 ||scrollPosition == null ? 'is-on-top':'not-on-top'">
-            <yellowline />
             <v-container class="nav-menu">
                 
                 <v-img dark max-width="120px" class="mr-5" src="@/assets/Branding/Logo.svg"></v-img>
@@ -9,6 +8,7 @@
                 <div class="menu">
                     <v-btn text v-if="false" :small=" ($vuetify.breakpoint.lg ? true : false)" dark>Vestibular</v-btn>
                     <v-btn to="/cursos" text :small="$vuetify.breakpoint.lg ? true : false" dark>Cursos</v-btn>
+                    <v-btn text dark :to="`/page/${btn.slug}`" v-for="(btn, i) in $store.state.api.pages" :key="i">{{btn.titulo}}</v-btn>
                     <v-btn text v-if="false" :small="$vuetify.breakpoint.lg ? true : false" dark>Acadêmico</v-btn>
                     <v-btn text v-if="false" :small="$vuetify.breakpoint.lg ? true : false" dark>Inovação e pesquisa</v-btn>
                     <v-btn text v-if="false" :small="$vuetify.breakpoint.lg ? true : false" dark class="transformith amber--text mr-5">Transformith</v-btn>
@@ -49,6 +49,7 @@
                 </v-btn>
 
             </v-container>
+            <yellowline />
         </div>
         <div v-if="$vuetify.breakpoint.md || $vuetify.breakpoint.sm || $vuetify.breakpoint.xs">
             <div>

@@ -16,6 +16,7 @@ export default new Vuex.Store({
       cursos: [],
       slides: [],
       posts: [],
+      pages: [],
       cursosError: false,
       postsError: false,
       slidesError: false,
@@ -64,12 +65,22 @@ export default new Vuex.Store({
         console.log('Ocorreu um erro comunicar API: ' + error);
         state.api.cursosError = true
       })
+    },  
+    getPages(state){
+        axios.get('https://v2.ithpos.com.br/api/index.php?rest_route=/ith/v1/pages/').then((resposta) => {
+          state.api.pages = resposta.data
+          state.api.pagesError = false
+          console.log('pages')
+          console.log(resposta.data)
+        }).catch((error) => {
+          console.log('Ocorreu um erro comunicar API: ' + error);
+          state.api.pagesError = true
+        })
     },    
     getPosts(state){
       axios.get('https://v2.ithpos.com.br/api/index.php?rest_route=/ith/v1/posts').then((resposta) => {
         state.api.posts = resposta.data
         state.api.postsError = false
-        console.log(resposta.data)
       }).catch((error) => {
         console.log('Ocorreu um erro comunicar API: ' + error);
         state.api.postsError = true

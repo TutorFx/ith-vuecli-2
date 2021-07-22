@@ -3,7 +3,7 @@
         <router-link v-if="$store.state.api.cursoLoaded" to="/cursos">
             <v-img class="mb-15" :src="curso.acf.como_funciona ? curso.acf.como_funciona : ''"></v-img>
         </router-link>
-        <v-parallax class="como-funciona" src="@/assets/bg/background-esteto.jpg" :style="`background-image: url(${require('@/assets/bg/background-esteto.jpg')});`">
+        <v-parallax v-if="false" class="como-funciona" src="@/assets/bg/background-esteto.jpg" :style="`background-image: url(${require('@/assets/bg/background-esteto.jpg')});`">
             <v-container class="py-15">
                 <!-- <v-img class="mb-15" v-if="$store.state.api.cursoLoaded" :src="curso.acf.como_funciona && false"></v-img> -->
                 <v-row class="white--text mb-15">

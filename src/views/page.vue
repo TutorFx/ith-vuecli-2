@@ -2,10 +2,10 @@
     <layout>
         <div v-for="(post, i) in post()" :key="i" class="py-17 conteudo">
             <div v-if="post.slug == $route.params.slug">
-                <v-parallax :src="post.thumbnail.large"></v-parallax>
-                <v-container class="mb-15 pa-10" style="background-color: #f4f4f4; min-height: 300px; margin-top: -150px; position: relative;" >
-                    <h1 class="text-center mb-6">{{post.titulo}}</h1>
-                    <p v-html="post.conteudo"></p>
+                <v-card color="primary" :style="`min-height: ${$vuetify.breakpoint.mobile ? '50':'150'}px`"></v-card>
+                <v-container class="mb-15 pa-10" style="" >
+                    <h1 v-if="false" class="text-center mb-6">{{post.titulo}}</h1>
+                    <p v-html="post.content"></p>
                 </v-container>
             </div>
         </div>
@@ -14,11 +14,7 @@
 
 <script>
 import layout from "@/components/Layout.vue"
-import slider from "@/components/home/slider"
 
-import underscore from "@/components/text/underscore.vue"
-
-import axios from 'axios'
 
 export default {
     components:{ layout },
@@ -38,7 +34,7 @@ export default {
         },
         post(){
             let filtro = {}
-            filtro = this.$store.state.api.posts
+            filtro = this.$store.state.api.pages
             return filtro;
         },
     },
@@ -55,7 +51,6 @@ export default {
 
 <style lang="scss">
 
-    figure{
         blockquote {
         background: white;
         border-left: 10px solid #FCA311;
@@ -74,10 +69,6 @@ export default {
         blockquote p {
         display: inline;
         }
-        img{
-            border-radius: 600px;
-        }   
-    }
 /**
  * Colors
  */
