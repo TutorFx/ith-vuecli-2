@@ -1,5 +1,5 @@
 <template>
-    <div class="exibicao">
+    <div class="exibicao" id="filtro">
         <v-container>
             <underscore class="mb-10" linecolor="#FCA311">FILTRE DO SEU JEITO</underscore>
             <filtro />

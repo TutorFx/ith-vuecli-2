@@ -6,8 +6,8 @@
         >   
             <v-slide-item v-slot="{ }">
                 <div>
-                    <div v-if="$vuetify.breakpoint.lg" :style="`width:${( $vuetify.breakpoint.width - 980 )/2 -60}px;`"></div>
-                    <div v-if="$vuetify.breakpoint.xl" :style="`width:${( $vuetify.breakpoint.width - 1200 )/2 -60}px;`"></div>
+                    <div v-if="$vuetify.breakpoint.lg" :style="`width:${( $vuetify.breakpoint.width - 1161 )/2 -60}px;`"></div>
+                    <div v-if="$vuetify.breakpoint.xl" :style="`width:${( $vuetify.breakpoint.width - 1761 )/2 -60}px;`"></div>
                 </div>
             </v-slide-item>
             <v-slide-item

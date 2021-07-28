@@ -1,77 +1,135 @@
 <template>
-<div>
+  <div>
     <div id="yellowline">
-        <v-container>
-            <v-row align-content="center" justify="center">
-                <v-col class="yellowlinks" align="center" cols="6">
-                    <v-btn to="/" small text>HOME</v-btn>
-                    <v-btn to="/institucional" small text>INSTITUCIONAL</v-btn>
-                    <v-btn to="/blog" small text>BLOG</v-btn>
-                    <v-menu offset-y>
-                        <template v-slot:activator="{ on, attrs }">
-                            <v-btn small text v-bind="attrs" style="font-weight: 500;" v-on="on" >
-                            ACESSO
-                            </v-btn>
-                        </template>
-                        <v-list>
-                            <v-list-item href="https://aluno.ithpos.com.br/#/login">
-                                <v-list-item-title>Aluno</v-list-item-title>
-                            </v-list-item>
-                            <v-list-item href="https://sistema.eduqtecnologia.com.br/#/nav/n5/home">
-                                <v-list-item-title>Professor</v-list-item-title>
-                            </v-list-item>
-                        </v-list>
-                    </v-menu>
-                    <v-btn to="/ouvidoria/faq" small text>OUVIDORIA</v-btn>
-                </v-col>
-                <v-col align="center">
-                    <v-btn class="mr-2" onclick="window.open('https://api.whatsapp.com/send?phone=556230917079', '_blank')" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab > <v-icon color="#fca311">fab fa-whatsapp</v-icon></v-btn>
-                    <v-btn class="mr-2" onclick="window.open('https://instagram.com/itheducacional?igshid=7xbxrxu1t16a', '_blank')" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab > <v-icon color="#fca311">fab fa-instagram</v-icon></v-btn>
-                    <v-btn class="mr-2" onclick="window.open('https://www.facebook.com/ithposgraduacao/', '_blank')" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab > <v-icon color="#fca311">fab fa-facebook</v-icon></v-btn>
-                    <v-btn class="mr-2" onclick="window.open('https://www.linkedin.com/company/ithpos', '_blank')" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab > <v-icon color="#fca311">fab fa-linkedin</v-icon></v-btn>
-                    <v-btn class="mr-2" onclick="window.open('https://www.youtube.com/channel/UCrVECUVMXbh9FYdkVK_PbwA', '_blank')" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab > <v-icon color="#fca311">fab fa-youtube</v-icon></v-btn>
-                    <v-btn class="mr-4" onclick="window.open('mailto:ithpos@ithpos.com.br', '_blank')" x-small color="black" v-ripple="{ class: `warning--text` }" depressed dark fab > <v-icon color="#fca311">mdi-email</v-icon></v-btn>
-                    <v-btn @click="configOpen()" small color="black" v-ripple="{ class: `warning--text` }" depressed dark><v-icon class="mr-3" small color="#fca311">fab fa-accessible-icon</v-icon> <span style="font-weight: 300; transform: translateY(-1px)">acessibilidade</span></v-btn>
-                </v-col>
-            </v-row>
-        </v-container>
+      <div>
+        <div align="end" class="d-flex align-center">
+<!-- 
+
+        selectCursos: [{text:'Graduação', id:'6'}, {text:'Pós-Graduação', id:'1'}, {text:'Extensão', id:'3'}, {text:'Internacional', id: '4'}, {text:'Técnico', id: '5'}],
+        selectModalidade: [{text:'Digital', id:'3'},{text:'Presencial', id: '2'}, {text:'Híbrido', id: '1'}],
+
+
+             -->
+            <v-btn small plain @click='cursos(["1"]); modalidade([{"text":"Presencial","id":"2"}])' to="/cursos">pós-graduação presencial</v-btn>
+            <v-btn small plain @click='cursos(["1"]); modalidade([{"text":"Digital", "id":"3"}])' to="/cursos">pós-graduação ead</v-btn>
+            <v-btn small plain @click='cursos(["3"]);' to="/cursos">cursos de extensão</v-btn>
+            <v-btn small plain @click='cursos(["4"]);' to="/cursos">cursos internacionais</v-btn>
+            <v-btn small plain @click='cursos(["5"]);' to="/cursos">cursos técnicos</v-btn>
+            <v-btn small plain @click='modalidade([{"text":"Digital", "id":"3"}])' to="/cursos">cursos online</v-btn>
+            <v-spacer></v-spacer>
+          <v-text-field
+            class="busca mt-1"
+            small
+            v-model="search"
+            @keyup.enter="buscar"
+            dense
+            style="max-width: 200px; transform: translateY(5px)"
+          >
+            <v-icon slot="append" color="primary" @click="buscar" dark
+              >mdi-magnify</v-icon
+            >
+          </v-text-field>
+
+          <v-badge
+            v-if="storage.carrinho.length > 0"
+            :content="storage.carrinho.length"
+            color="black"
+            overlap
+          >
+            <v-btn
+              class="ml-2"
+              fab
+              small
+              depressed
+              color="black"
+              to="/carrinho"
+            >
+              <v-icon dark color="#FCA311">
+                mdi-cart
+              </v-icon>
+            </v-btn>
+          </v-badge>
+          <v-btn
+            v-else
+            class="ml-2"
+            fab
+            small
+            text
+            color="primary"
+            to="/carrinho"
+          >
+            <v-icon dark>
+              mdi-cart
+            </v-icon>
+          </v-btn>
+        </div>
+      </div>
     </div>
-    <div class="settings-desktop">
-        <v-container class="pa-0">
-            <config />
-        </v-container>
+    <div class="settings-desktop mt-3">
+      <v-container class="pa-0">
+        <config />
+      </v-container>
     </div>
-</div>
+  </div>
 </template>
 
 <script>
-import config from "@/components/settings/config.vue"
+import config from "@/components/settings/config.vue";
 export default {
-    components: {
-        config
+  components: {
+    config,
+  },
+  data(){
+      return{
+          search: '',
+      }
+  },
+  methods: {
+    buscar(){
+        this.$store.commit("changeSearch", this.search);
+        if(this.$route.name != 'Cursos'){
+            this.$router.push( {name:'Cursos'}) 
+        }
     },
-    methods: {
-        configOpen(){
-            this.$store.commit("toggleConfig")
-        }
+    cursos(v){
+        this.$store.commit("tipocurso", v)
+    },
+    modalidade(v){
+        this.$store.commit("modalidade", v);
     }
-}
+  }
+};
 </script>
+<style scoped lang="scss">
+@import "~vuetify/src/styles/styles.sass";
 
+@media only screen and (min-width: map-get($grid-breakpoints, "lg")) {
+  .container {
+    max-width: 1000px !important;
+  }
+}
+
+@media only screen and (min-width: map-get($grid-breakpoints, "xl")) {
+  .container {
+    max-width: 1500px !important;
+  }
+}
+</style>
 <style lang="scss">
-    #yellowline{
-        background-color: #fca311;
-        .yellowlinks{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            button{
-                font-family: Gilmer;
-                font-weight: bold;
-            }
-        }
+#yellowline {
+  background-color: #fca311;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  .yellowlinks {
+    display: flex;
+    align-items: center;
+    button {
+      font-family: Gilmer;
+      font-weight: bold;
     }
-    .settings-desktop{
-        background-color: black;
-    }
+  }
+}
+.settings-desktop {
+  background-color: black;
+}
 </style>

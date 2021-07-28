@@ -9,7 +9,7 @@
                         <div class="mb-3">
                             <span class="estudeondequiser py-4 px-10">ESTUDE ONDE QUISER</span>
                         </div>
-                        <v-img src="@/assets/Mockup/homemockup.png"></v-img>
+                        <img src="@/assets/Mockup/homemockup.png" style="max-width: 100%">
                     </div>
                 </div>
             </v-col>
@@ -71,7 +71,7 @@ import underscore from "@/components/text/underscore.vue"
     @media only screen and (min-width: map-get($grid-breakpoints, 'md')) {
         .estudeondequiser{
             font-size: 2rem;
-            border: 3px solid white;
+            border: 1px solid white;
             font-family: 'Gilmer';
             font-weight: 800;
             color: white;

@@ -30,7 +30,6 @@
                 font-size: 18px;
                 text-align: center;
 
-                border: 2px solid #fff;
             }
         }
 

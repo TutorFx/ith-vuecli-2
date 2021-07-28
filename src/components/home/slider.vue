@@ -2,23 +2,21 @@
     <div class="slider-container" >
         <div class="reset-slider">
             <div :style="`height:${!$vuetify.breakpoint.mobile ? '150px':'48px'};`"></div>
-            <v-carousel hide-delimiters height="auto">
+            <v-carousel hide-delimiters height="auto" :style="`height: calc(90vh - ${!$vuetify.breakpoint.mobile ? '150px':'48px'});`">
                 <v-carousel-item
                 v-for="(item,i) in items" :key="i">
-                    <v-container class="pa-0">
-                        <v-img 
+                    <v-container class="pa-0 d-flex align-center justify-center">
+                        <img 
                         :src="$vuetify.breakpoint.name == 'xs' || $vuetify.breakpoint.name == 'sm' ? item.acf.mobile : $vuetify.breakpoint.name == 'md' ? item.acf.medium : $vuetify.breakpoint.name == 'lg' ? item.acf.large : item.thumbnail" 
                         :aspect-ratio="bp[$vuetify.breakpoint.name].x/bp[$vuetify.breakpoint.name].y"
                         align="center center"
                         eager
                         contain
-                        ></v-img>
+                        :style="`max-width:100%; width: auto; height: calc(90vh - ${!$vuetify.breakpoint.mobile ? '150px':'48px'});`"
+                        >
                     </v-container>
                 </v-carousel-item>
             </v-carousel>
-            <v-card v-if="false" dark class="text-center">
-            {{$vuetify.breakpoint.name}}
-            </v-card>
         </div>
     </div>
 </template>

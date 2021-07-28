@@ -1,7 +1,7 @@
 <template>
   <div>
     <navbar-one :class="storage.contraste ? 'contraste':''" />
-      <slot id="content" ></slot>
+      <slot id="content"></slot>
       <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>

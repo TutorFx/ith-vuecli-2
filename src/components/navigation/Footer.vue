@@ -1,6 +1,24 @@
 <!-- CONFIG. HTML -->
 <template>
   <div class="footer">
+    <div class="yellow">
+      <v-container class="d-flex align-center">
+        <h3 class="white--text">Cadastre-se para receber nossas ofertas!</h3>
+        <v-spacer></v-spacer>
+        <v-form class="d-flex align-center">
+          <v-text-field dark color="white" outlined dense style="max-width: 300px; transform: translateY(13px)" class="mr-3" label="E-mail"></v-text-field>
+          <v-text-field dark color="white" outlined dense style="max-width: 300px; transform: translateY(13px)" class="mr-10" label="Nome"></v-text-field>
+          <v-btn dark color="black" type="submit">Cadastrar</v-btn>
+        </v-form>
+      </v-container>
+    </div>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15287.132554329952!2d-49.2421684!3d-16.687732!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc0bba475482eadb5!2sITH%20Educacional!5e0!3m2!1spt-BR!2sbr!4v1627438471906!5m2!1spt-BR!2sbr"
+      style="border:0; width: 100%; height: 500px"
+      class="mb-10"
+      allowfullscreen=""
+      loading="lazy"
+    ></iframe>
     <v-container class="container-footer">
       <!-- CONTAINER PRINCIPAL -->
       <v-row>
@@ -97,9 +115,9 @@
             class="logo-endereco"
             onclick="window.open('https://www.google.com/maps/dir/-16.7070333,-49.2740054/google+maps+ith+pos/@-16.694314,-49.2767863,14z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x935ef1253591ecd9:0xc0bba475482eadb5!2m2!1d-49.2421684!2d-16.687732', '_blank')"
           >
-            Rua 203, Nº344 - St. Leste Universitário <br>
-            CEP: 74.603-060 Goiânia - GO<br>
-            INSTITUTO HEALTH ITH EIRELI ME<br>
+            Rua 203, Nº344 - St. Leste Universitário <br />
+            CEP: 74.603-060 Goiânia - GO<br />
+            INSTITUTO HEALTH ITH EIRELI ME<br />
             CNPJ: 15.272.624/0001-35
           </a>
         </v-col>
@@ -115,58 +133,55 @@
                 <router-link class="" to="/institucional">
                   Institucional
                 </router-link>
-                <br />
-                <router-link class="" to="/cursos"> Cursos </router-link> <br />
-                <router-link class="" to="/blog"> Blog </router-link> <br />
-                <router-link :to="`/page/${btn.slug}`" v-for="(btn, i) in $store.state.api.pages" :key="i">{{btn.titulo}}</router-link> <br>
+                <router-link class="" to="/cursos"> Cursos </router-link>
+                <router-link class="" to="/blog"> Blog </router-link>
+                <router-link
+                  :to="`/page/${btn.slug}`"
+                  v-for="(btn, i) in $store.state.api.pages"
+                  :key="i"
+                  >{{ btn.titulo }}</router-link
+                >
                 <a
                   onclick="window.open('https://aluno.ithpos.com.br/#/login', '_blank')"
                   >Acesso Aluno</a
-                ><br />
+                >
                 <a
                   onclick="window.open('https://sistema.eduqtecnologia.com.br/#/nav/n5/home', '_blank')"
                   >Acesso Professor</a
-                ><br />
+                >
                 <router-link v-if="false" class="" to="/academico">
                   Quem Somos
                 </router-link>
-                <br />
                 <router-link v-if="false" class="" to="/academico">
                   Transformith
-                </router-link> <br />
-                <br />
+                </router-link>
               </div>
             </v-col>
 
             <v-col>
               <div v-if="false" class="footerlinks">
-                <H3>Informações</H3> <br />
+                <H3>Informações</H3>
                 <router-link v-if="false" class="" to="/academico">
                   Termos de Serviço
                 </router-link>
-                <br />
                 <router-link v-if="false" class="" to="/academico">
                   Politica e Privacidade
                 </router-link>
-                <br />
                 <router-link v-if="false" class="" to="/academico">
                   LGPD
                 </router-link>
-                <br />
               </div>
             </v-col>
 
             <v-col>
               <div v-if="false" class="footerlinks">
-                <H4>Acesso</H4> <br />
+                <H4>Acesso</H4>
                 <router-link v-if="false" class="" to="/academico">
                   Termos de Serviço
                 </router-link>
-                <br />
                 <router-link v-if="false" class="" to="/academico">
                   Politica e Privacidade
                 </router-link>
-                <br />
               </div>
             </v-col>
 
@@ -209,10 +224,6 @@
 <style lang="scss">
 .footer {
   /* config. footer 'alinha container'/ */
-  display: flex;
-  justify-content: center;
-
-  height: 300px;
 
   .container-footer {
     /* config. footer 'BETWEEN em LOGO e AREA' */
@@ -237,6 +248,7 @@
       a {
         text-decoration: none;
         color: #777;
+        display: block;
       }
     }
   }
@@ -245,5 +257,14 @@
 
 <!-- CONFIG. JAVA SCRIPT -->
 <script>
-export default {};
+export default {
+  data: () => ({
+    emailRules: [
+      (v) =>
+        !v ||
+        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+        "E-mail must be valid",
+    ],
+  }),
+};
 </script>
