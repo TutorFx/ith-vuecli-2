@@ -166,11 +166,11 @@ export default {
                 filtro = _.filter(filtro, function(o) {
                     var btitulo = removeAcento(o.titulo.toLowerCase())
                     var bbusca = removeAcento(busca.toLowerCase())
-                    console.log()
+                    //console.log()
                     return btitulo.includes(bbusca)
                 })
             }
-            console.log(filtro.length)
+            //console.log(filtro.length)
             return filtro
         }
     },
@@ -184,7 +184,7 @@ export default {
         isIntersecting: false,
     }),
     mounted(){
-        console.log(this.$vuetify.breakpoint.width)
+        //console.log(this.$vuetify.breakpoint.width)
     },
     methods: {
       onIntersect (entries, observer) {

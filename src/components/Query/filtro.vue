@@ -118,14 +118,62 @@ export default {
         '$store.state.api.cursoFiltrado': function() {
             var autocomplete = []
             Object.entries(this.$store.state.api.cursoFiltrado).map(auto => {
-                console.log(auto[1].titulo)
+                //console.log(auto[1].titulo)
                 autocomplete.push(auto[1].titulo)
             })
             this.autocomplete = autocomplete
-            console.log(this.$store.state.api.cursoFiltrado)
+            //console.log(this.$store.state.api.cursoFiltrado)
         },
+        '$store.state.search.area': function() {
+            console.log(this.$store.state.search.area)
+        },
+        /*
+        '$store.state.search.tipocurso': function() {
+            console.log(this.$store.state.search.tipocurso)
+            Object.entries(this.$store.state.search.tipocurso).map(cat => {
+                let tipocurso = []
+                for(this.selected in this.selectCursos){
+                    //console.log(cat[1])
+                    //console.log(this.selectCursos[this.selected]['id'])
+                    if(this.selectCursos[this.selected]['id'] == cat[1] ){
+                        tipocurso.push(this.selectCursos[this.selected])
+                    }
+                }
+                this.cursos = tipocurso
+            })
+        },*/
         search(){
             this.buscar()
+        },
+        $route (to, from){
+        if(this.$route.query.tipo != null){
+            console.log(JSON.parse(this.$route.query.tipo))
+            Object.entries(JSON.parse(this.$route.query.tipo)).map(cat => {
+                let tipocurso = []
+                for(this.selected in this.selectCursos){
+                    //console.log(cat[1])
+                    //console.log(this.selectCursos[this.selected]['id'])
+                    if(this.selectCursos[this.selected]['id'] == cat[1] ){
+                        tipocurso.push(this.selectCursos[this.selected])
+                    }
+                }
+                this.cursos = tipocurso
+            })
+        }
+        if(this.$route.query.modalidade != null){
+            console.log(JSON.parse(this.$route.query.modalidade))
+            Object.entries(JSON.parse(this.$route.query.modalidade)).map(cat => {
+                let modalidadecurso = []
+                for(this.selected in this.selectModalidade){
+                    //console.log(cat[1])
+                    //console.log(this.selectCursos[this.selected]['id'])
+                    if(this.selectModalidade[this.selected]['id'] == cat[1] ){
+                        modalidadecurso.push(this.selectModalidade[this.selected])
+                    }
+                }
+                this.modalidade = modalidadecurso
+            })
+        }
         }
     },
     computed:{
@@ -135,6 +183,9 @@ export default {
     },
     created(){
     },
+    mounted(){
+        
+    }
 }
 </script>
 

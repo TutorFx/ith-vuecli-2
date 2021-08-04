@@ -62,7 +62,7 @@ export default new Vuex.Store({
         state.api.cursos = resposta.data
         state.api.cursosError = false
       }).catch((error) => {
-        console.log('Ocorreu um erro comunicar API: ' + error);
+        //console.log('Ocorreu um erro comunicar API: ' + error);
         state.api.cursosError = true
       })
     },  
@@ -70,8 +70,8 @@ export default new Vuex.Store({
         axios.get('https://v2.ithpos.com.br/api/index.php?rest_route=/ith/v1/pages/').then((resposta) => {
           state.api.pages = resposta.data
           state.api.pagesError = false
-          console.log('pages')
-          console.log(resposta.data)
+          //console.log('pages')
+          //console.log(resposta.data)
         }).catch((error) => {
           console.log('Ocorreu um erro comunicar API: ' + error);
           state.api.pagesError = true
@@ -82,7 +82,7 @@ export default new Vuex.Store({
         state.api.posts = resposta.data
         state.api.postsError = false
       }).catch((error) => {
-        console.log('Ocorreu um erro comunicar API: ' + error);
+        //console.log('Ocorreu um erro comunicar API: ' + error);
         state.api.postsError = true
       })
     },
@@ -90,14 +90,14 @@ export default new Vuex.Store({
       axios.get('https://v2.ithpos.com.br/api/index.php?rest_route=/ith/v1/slides').then((resslidea) => {
         state.api.slides = resslidea.data
         state.api.slidesError = false
-        console.log(resslidea.data)
+        //console.log(resslidea.data)
       }).catch((error) => {
-        console.log('Ocorreu um erro comunicar API: ' + error);
+        //console.log('Ocorreu um erro comunicar API: ' + error);
         state.api.slidesError = true
       })
     },
     getApiSingle(state, payload){
-      console.log(payload)
+      //console.log(payload)
       state.api.cursoLoaded = false
       axios.get(`https://v2.ithpos.com.br/api/index.php?rest_route=/ith/v1/curso/${payload}/`).then((resposta) => {
         state.api.curso[payload] = resposta.data

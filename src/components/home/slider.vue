@@ -2,7 +2,7 @@
     <div class="slider-container" >
         <div class="reset-slider">
             <div :style="`height:${!$vuetify.breakpoint.mobile ? '150px':'48px'};`"></div>
-            <v-carousel hide-delimiters height="auto" :style="`height: calc(90vh - ${!$vuetify.breakpoint.mobile ? '150px':'48px'});`">
+            <v-carousel :cycle="true" hide-delimiters height="auto" :style="`height: calc(90vh - ${!$vuetify.breakpoint.mobile ? '150px':'48px'});`">
                 <v-carousel-item
                 v-for="(item,i) in items" :key="i">
                     <v-container class="pa-0 d-flex align-center justify-center">
@@ -63,11 +63,11 @@ export default {
                 for(this.a in this.$store.state.api.slides){
                     this.items.push(this.$store.state.api.slides[this.a])
                 }
-                console.log(this.items)
+                //console.log(this.items)
             }
         },
         '$store.state.api.slidesError': function() {
-            console.log('triggered')
+            //console.log('triggered')
         },
     }
 }

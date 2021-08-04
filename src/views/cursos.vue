@@ -1,7 +1,8 @@
 <template>
   <div class="cursos">
     <layout>
-      <slider />
+      <slider v-if="false" />
+      <v-card color="primary" height="130px" flat rounded="0"></v-card>
       
       <index />
       

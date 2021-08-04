@@ -10,12 +10,12 @@
 
 
              -->
-            <v-btn small plain @click='cursos(["1"]); modalidade([{"text":"Presencial","id":"2"}])' to="/cursos">pós-graduação presencial</v-btn>
-            <v-btn small plain @click='cursos(["1"]); modalidade([{"text":"Digital", "id":"3"}])' to="/cursos">pós-graduação ead</v-btn>
-            <v-btn small plain @click='cursos(["3"]);' to="/cursos">cursos de extensão</v-btn>
-            <v-btn small plain @click='cursos(["4"]);' to="/cursos">cursos internacionais</v-btn>
-            <v-btn small plain @click='cursos(["5"]);' to="/cursos">cursos técnicos</v-btn>
-            <v-btn small plain @click='modalidade([{"text":"Digital", "id":"3"}])' to="/cursos">cursos online</v-btn>
+            <v-btn small plain to="/cursos/?tipo=[1]&modalidade=[2]" >pós-graduação presencial</v-btn>
+            <v-btn small plain to="/cursos/?tipo=[1]&modalidade=[3]" >pós-graduação ead</v-btn>
+            <v-btn small plain to="/cursos/?tipo=[3]">cursos de extensão</v-btn>
+            <v-btn small plain to="/cursos/?tipo=[4]">cursos internacionais</v-btn>
+            <v-btn small plain to="/cursos/?tipo=[5]">cursos técnicos</v-btn>
+            <v-btn small plain to="/cursos/?modalidade=[3]">cursos online</v-btn>
             <v-spacer></v-spacer>
           <v-text-field
             class="busca mt-1"
