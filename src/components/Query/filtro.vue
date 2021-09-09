@@ -92,9 +92,37 @@ export default {
                 })
             })
         },
-        atualizarAutofill(){
-            
-        }
+        atualizar(){
+            if(this.$route.query.tipo != null){
+                console.log(JSON.parse(this.$route.query.tipo))
+                Object.entries(JSON.parse(this.$route.query.tipo)).map(cat => {
+                    let tipocurso = []
+                    for(this.selected in this.selectCursos){
+                        //console.log(cat[1])
+                        //console.log(this.selectCursos[this.selected]['id'])
+                        if(this.selectCursos[this.selected]['id'] == cat[1] ){
+                            tipocurso.push(this.selectCursos[this.selected])
+                        }
+                    }
+                    this.cursos = tipocurso
+                })
+            }
+            if(this.$route.query.modalidade != null){
+                console.log(JSON.parse(this.$route.query.modalidade))
+                Object.entries(JSON.parse(this.$route.query.modalidade)).map(cat => {
+                    let modalidadecurso = []
+                    for(this.selected in this.selectModalidade){
+                        //console.log(cat[1])
+                        //console.log(this.selectCursos[this.selected]['id'])
+                        if(this.selectModalidade[this.selected]['id'] == cat[1] ){
+                            modalidadecurso.push(this.selectModalidade[this.selected])
+                        }
+                    }
+                    this.modalidade = modalidadecurso
+                })
+            }
+        },
+
 
     },
     watch: {
@@ -146,34 +174,7 @@ export default {
             this.buscar()
         },
         $route (to, from){
-        if(this.$route.query.tipo != null){
-            console.log(JSON.parse(this.$route.query.tipo))
-            Object.entries(JSON.parse(this.$route.query.tipo)).map(cat => {
-                let tipocurso = []
-                for(this.selected in this.selectCursos){
-                    //console.log(cat[1])
-                    //console.log(this.selectCursos[this.selected]['id'])
-                    if(this.selectCursos[this.selected]['id'] == cat[1] ){
-                        tipocurso.push(this.selectCursos[this.selected])
-                    }
-                }
-                this.cursos = tipocurso
-            })
-        }
-        if(this.$route.query.modalidade != null){
-            console.log(JSON.parse(this.$route.query.modalidade))
-            Object.entries(JSON.parse(this.$route.query.modalidade)).map(cat => {
-                let modalidadecurso = []
-                for(this.selected in this.selectModalidade){
-                    //console.log(cat[1])
-                    //console.log(this.selectCursos[this.selected]['id'])
-                    if(this.selectModalidade[this.selected]['id'] == cat[1] ){
-                        modalidadecurso.push(this.selectModalidade[this.selected])
-                    }
-                }
-                this.modalidade = modalidadecurso
-            })
-        }
+            this.atualizar()
         }
     },
     computed:{
@@ -182,9 +183,10 @@ export default {
         }
     },
     created(){
+        this.atualizar()
     },
     mounted(){
-        
+        this.atualizar()
     }
 }
 </script>
